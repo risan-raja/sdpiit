@@ -1,0 +1,80 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@latest/styles/vis-network.css" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network@latest/dist/vis-network.min.js"> </script>
+<center>
+<h1>Clustering of Features</h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 2000px;
+            height: 1080px;
+            background-color: #9ed6c8;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "#008000", "font": {"color": "#46ff00"}, "id": 0, "label": "nom__v_21", "shape": "circle"}, {"color": "#008000", "font": {"color": "#46ff00"}, "id": 1, "label": "nom__v_32", "shape": "circle"}, {"color": "#800080", "font": {"color": "#46ff00"}, "id": 2, "label": "ord__v_15", "shape": "circle"}, {"color": "#008000", "font": {"color": "#46ff00"}, "id": 3, "label": "nom__v_4", "shape": "circle"}, {"color": "#FFEC00", "font": {"color": "#46ff00"}, "id": 4, "label": "bin__v_1", "shape": "circle"}, {"color": "#FF0083", "font": {"color": "#46ff00"}, "id": 5, "label": "v_8", "shape": "circle"}, {"color": "#008000", "font": {"color": "#46ff00"}, "id": 6, "label": "nom__v_12", "shape": "circle"}, {"color": "#008000", "font": {"color": "#46ff00"}, "id": 7, "label": "nom__v_25", "shape": "circle"}, {"color": "#008000", "font": {"color": "#46ff00"}, "id": 8, "label": "nom__v_20", "shape": "circle"}, {"color": "#008000", "font": {"color": "#46ff00"}, "id": 9, "label": "nom__v_18", "shape": "circle"}, {"color": "#008000", "font": {"color": "#46ff00"}, "id": 10, "label": "nom__v_3", "shape": "circle"}, {"color": "#FFEC00", "font": {"color": "#46ff00"}, "id": 11, "label": "bin__v_11", "shape": "circle"}, {"color": "#FFEC00", "font": {"color": "#46ff00"}, "id": 12, "label": "bin__v_14", "shape": "circle"}, {"color": "#FFEC00", "font": {"color": "#46ff00"}, "id": 13, "label": "bin__v_26", "shape": "circle"}, {"color": "#FFEC00", "font": {"color": "#46ff00"}, "id": 14, "label": "bin__v_27", "shape": "circle"}, {"color": "#FFEC00", "font": {"color": "#46ff00"}, "id": 15, "label": "bin__v_30", "shape": "circle"}, {"color": "#FFEC00", "font": {"color": "#46ff00"}, "id": 16, "label": "bin__v_9", "shape": "circle"}, {"color": "#800080", "font": {"color": "#46ff00"}, "id": 17, "label": "ord__v_31", "shape": "circle"}, {"color": "#FFEC00", "font": {"color": "#46ff00"}, "id": 18, "label": "bin__v_28", "shape": "circle"}, {"color": "#800080", "font": {"color": "#46ff00"}, "id": 19, "label": "ord__v_13", "shape": "circle"}, {"color": "#800080", "font": {"color": "#46ff00"}, "id": 20, "label": "ord__v_33", "shape": "circle"}, {"color": "#800080", "font": {"color": "#46ff00"}, "id": 21, "label": "ord__v_17", "shape": "circle"}, {"color": "#800080", "font": {"color": "#46ff00"}, "id": 22, "label": "ord__v_19", "shape": "circle"}, {"color": "#800080", "font": {"color": "#46ff00"}, "id": 23, "label": "ord__v_29", "shape": "circle"}, {"color": "#800080", "font": {"color": "#46ff00"}, "id": 24, "label": "ord__v_23", "shape": "circle"}, {"color": "#800080", "font": {"color": "#46ff00"}, "id": 25, "label": "ord__v_24", "shape": "circle"}, {"color": "#800080", "font": {"color": "#46ff00"}, "id": 26, "label": "ord__v_10", "shape": "circle"}, {"color": "#800080", "font": {"color": "#46ff00"}, "id": 27, "label": "ord__v_5", "shape": "circle"}, {"color": "#800080", "font": {"color": "#46ff00"}, "id": 28, "label": "ord__v_6", "shape": "circle"}, {"color": "#800080", "font": {"color": "#46ff00"}, "id": 29, "label": "ord__v_22", "shape": "circle"}, {"color": "#800080", "font": {"color": "#46ff00"}, "id": 30, "label": "ord__v_0", "shape": "circle"}, {"color": "#FF0083", "font": {"color": "#46ff00"}, "id": 31, "label": "v_7", "shape": "circle"}, {"color": "#FF0083", "font": {"color": "#46ff00"}, "id": 32, "label": "v_2", "shape": "circle"}, {"color": "#FF0083", "font": {"color": "#46ff00"}, "id": 33, "label": "v_16", "shape": "circle"}, {"color": "#FF0083", "font": {"color": "#46ff00"}, "id": 34, "label": "v_34", "shape": "circle"}, {"color": "#FF0083", "font": {"color": "#46ff00"}, "id": 35, "label": "v_35", "shape": "circle"}, {"color": "#FF0083", "font": {"color": "#46ff00"}, "id": 36, "label": "v_36", "shape": "circle"}, {"color": "#FF0083", "font": {"color": "#46ff00"}, "id": 37, "label": "v_37", "shape": "circle"}, {"color": "#FF0083", "font": {"color": "#46ff00"}, "id": 38, "label": "v_38", "shape": "circle"}, {"color": "#FF0083", "font": {"color": "#46ff00"}, "id": 39, "label": "v_39", "shape": "circle"}, {"color": "#FF0083", "font": {"color": "#46ff00"}, "id": 40, "label": "v_40", "shape": "circle"}, {"color": "#D800FF", "font": {"color": "#46ff00"}, "id": 41, "label": "label", "shape": "circle"}]);
+        edges = new vis.DataSet([{"from": 1, "to": 17, "weight": 0.40702263251439585}, {"from": 2, "to": 4, "weight": 0.5816640927570033}, {"from": 2, "to": 11, "weight": 0.6112403420489817}, {"from": 2, "to": 12, "weight": 0.5663053126772485}, {"from": 2, "to": 13, "weight": 0.5759773756959263}, {"from": 2, "to": 14, "weight": 0.5573447111230538}, {"from": 2, "to": 15, "weight": 0.5488163281099958}, {"from": 2, "to": 16, "weight": 0.5731682441647635}, {"from": 2, "to": 18, "weight": 0.5757238336041983}, {"from": 2, "to": 24, "weight": 0.5194310300553007}, {"from": 2, "to": 26, "weight": 0.41695785906494365}, {"from": 2, "to": 30, "weight": 0.514702826477821}, {"from": 2, "to": 32, "weight": 0.47484456976759803}, {"from": 2, "to": 33, "weight": 0.401444899204096}, {"from": 2, "to": 40, "weight": 0.4332701416577092}, {"from": 4, "to": 11, "weight": 0.6368807708502034}, {"from": 4, "to": 12, "weight": 0.658802783649964}, {"from": 4, "to": 13, "weight": 0.6562295440658495}, {"from": 4, "to": 14, "weight": 0.6558955014039399}, {"from": 4, "to": 15, "weight": 0.6700002962716323}, {"from": 4, "to": 16, "weight": 0.6479893659800876}, {"from": 4, "to": 18, "weight": 0.6356569159202538}, {"from": 4, "to": 19, "weight": 0.4381572853636693}, {"from": 4, "to": 20, "weight": 0.4289144956785757}, {"from": 4, "to": 24, "weight": 0.6337676925575516}, {"from": 4, "to": 25, "weight": 0.4617319899643352}, {"from": 4, "to": 26, "weight": 0.4632175581366362}, {"from": 4, "to": 30, "weight": 0.6089682607043748}, {"from": 4, "to": 31, "weight": 0.41549536548517385}, {"from": 4, "to": 32, "weight": 0.5562684637302934}, {"from": 4, "to": 33, "weight": 0.45581777672822177}, {"from": 4, "to": 40, "weight": 0.4882213353553314}, {"from": 7, "to": 8, "weight": 0.5156154256728331}, {"from": 9, "to": 10, "weight": 0.6358621949421283}, {"from": 11, "to": 12, "weight": 0.6456429077537037}, {"from": 11, "to": 13, "weight": 0.6564283659470207}, {"from": 11, "to": 14, "weight": 0.6598419786518558}, {"from": 11, "to": 15, "weight": 0.6505536456519868}, {"from": 11, "to": 16, "weight": 0.6340537479171329}, {"from": 11, "to": 18, "weight": 0.6775635450010251}, {"from": 11, "to": 19, "weight": 0.40613984284613}, {"from": 11, "to": 20, "weight": 0.40340094545945115}, {"from": 11, "to": 24, "weight": 0.5918888435113921}, {"from": 11, "to": 25, "weight": 0.44858960825025346}, {"from": 11, "to": 26, "weight": 0.4213913439737958}, {"from": 11, "to": 30, "weight": 0.6122652363844562}, {"from": 11, "to": 32, "weight": 0.5277276080688948}, {"from": 11, "to": 33, "weight": 0.451170908084541}, {"from": 11, "to": 40, "weight": 0.4757025084455357}, {"from": 12, "to": 13, "weight": 0.6536497073445935}, {"from": 12, "to": 14, "weight": 0.6660854979963244}, {"from": 12, "to": 15, "weight": 0.6406574742657839}, {"from": 12, "to": 16, "weight": 0.6582007057558905}, {"from": 12, "to": 18, "weight": 0.6457845875589974}, {"from": 12, "to": 19, "weight": 0.44634697703365145}, {"from": 12, "to": 20, "weight": 0.44216735394534196}, {"from": 12, "to": 24, "weight": 0.6154209440480877}, {"from": 12, "to": 25, "weight": 0.5030335901256121}, {"from": 12, "to": 26, "weight": 0.4675231465851701}, {"from": 12, "to": 28, "weight": 0.40606050302807706}, {"from": 12, "to": 30, "weight": 0.6157021492575249}, {"from": 12, "to": 31, "weight": 0.4327310398799563}, {"from": 12, "to": 32, "weight": 0.5559350568427625}, {"from": 12, "to": 33, "weight": 0.44919576801671496}, {"from": 12, "to": 40, "weight": 0.5216420438874151}, {"from": 13, "to": 14, "weight": 0.6583547602448997}, {"from": 13, "to": 15, "weight": 0.6485778823866436}, {"from": 13, "to": 16, "weight": 0.6502868523320956}, {"from": 13, "to": 18, "weight": 0.6455229037179813}, {"from": 13, "to": 19, "weight": 0.45252979133081206}, {"from": 13, "to": 20, "weight": 0.43664110193351563}, {"from": 13, "to": 24, "weight": 0.6128050256972226}, {"from": 13, "to": 25, "weight": 0.5049607570955041}, {"from": 13, "to": 26, "weight": 0.44892899899553595}, {"from": 13, "to": 30, "weight": 0.6241070842820168}, {"from": 13, "to": 31, "weight": 0.43379664877908747}, {"from": 13, "to": 32, "weight": 0.5278619522731948}, {"from": 13, "to": 33, "weight": 0.45713437262219203}, {"from": 13, "to": 40, "weight": 0.5026722339273468}, {"from": 14, "to": 15, "weight": 0.6374467932192572}, {"from": 14, "to": 16, "weight": 0.6265270393113934}, {"from": 14, "to": 18, "weight": 0.6293910292002933}, {"from": 14, "to": 19, "weight": 0.4439809446494605}, {"from": 14, "to": 20, "weight": 0.4306036266280535}, {"from": 14, "to": 24, "weight": 0.622864258713625}, {"from": 14, "to": 25, "weight": 0.48650139275408827}, {"from": 14, "to": 26, "weight": 0.4789747250745203}, {"from": 14, "to": 28, "weight": 0.4102079184971305}, {"from": 14, "to": 30, "weight": 0.5943261666266105}, {"from": 14, "to": 31, "weight": 0.4115268384841151}, {"from": 14, "to": 32, "weight": 0.5428753117521651}, {"from": 14, "to": 33, "weight": 0.4471474872432695}, {"from": 14, "to": 40, "weight": 0.5286750743097192}, {"from": 15, "to": 16, "weight": 0.6319303112106444}, {"from": 15, "to": 18, "weight": 0.6431175923879892}, {"from": 15, "to": 19, "weight": 0.4502359285746171}, {"from": 15, "to": 20, "weight": 0.41145383200858493}, {"from": 15, "to": 24, "weight": 0.6231483340327197}, {"from": 15, "to": 25, "weight": 0.4825433048842593}, {"from": 15, "to": 26, "weight": 0.4259641145619585}, {"from": 15, "to": 30, "weight": 0.6256930035697555}, {"from": 15, "to": 31, "weight": 0.41140299071487046}, {"from": 15, "to": 32, "weight": 0.5439293593807409}, {"from": 15, "to": 33, "weight": 0.4612328627606824}, {"from": 15, "to": 40, "weight": 0.48273710000208914}, {"from": 16, "to": 18, "weight": 0.6168042185132034}, {"from": 16, "to": 19, "weight": 0.40930334580896144}, {"from": 16, "to": 20, "weight": 0.4063855014874181}, {"from": 16, "to": 24, "weight": 0.6066826833775234}, {"from": 16, "to": 25, "weight": 0.4638722406017375}, {"from": 16, "to": 26, "weight": 0.43460376315939775}, {"from": 16, "to": 30, "weight": 0.6005826055381139}, {"from": 16, "to": 31, "weight": 0.4227045278284206}, {"from": 16, "to": 32, "weight": 0.5267476405258732}, {"from": 16, "to": 33, "weight": 0.43913891609480027}, {"from": 16, "to": 40, "weight": 0.48200994036557027}, {"from": 18, "to": 19, "weight": 0.43845772459992804}, {"from": 18, "to": 20, "weight": 0.42538947454217546}, {"from": 18, "to": 24, "weight": 0.6086649041666142}, {"from": 18, "to": 25, "weight": 0.4875324654629969}, {"from": 18, "to": 26, "weight": 0.4555687206661704}, {"from": 18, "to": 30, "weight": 0.6289693418273598}, {"from": 18, "to": 31, "weight": 0.4092592001764399}, {"from": 18, "to": 32, "weight": 0.5301868997847613}, {"from": 18, "to": 33, "weight": 0.4526942794275092}, {"from": 18, "to": 40, "weight": 0.4766230174999352}, {"from": 19, "to": 20, "weight": 0.7284881155128179}, {"from": 19, "to": 21, "weight": 0.5700536835804649}, {"from": 19, "to": 22, "weight": 0.6370687856712112}, {"from": 19, "to": 24, "weight": 0.43858803470929425}, {"from": 19, "to": 25, "weight": 0.7969770027157639}, {"from": 19, "to": 26, "weight": 0.6415819640430185}, {"from": 19, "to": 27, "weight": 0.502536782418781}, {"from": 19, "to": 28, "weight": 0.5474448516822483}, {"from": 19, "to": 30, "weight": 0.42050701061185286}, {"from": 19, "to": 32, "weight": 0.4033861271563864}, {"from": 20, "to": 21, "weight": 0.6673070671100385}, {"from": 20, "to": 22, "weight": 0.7331454502727891}, {"from": 20, "to": 23, "weight": 0.44545354890762223}, {"from": 20, "to": 24, "weight": 0.43735355658747016}, {"from": 20, "to": 25, "weight": 0.6962801479313683}, {"from": 20, "to": 26, "weight": 0.8258903625678039}, {"from": 20, "to": 27, "weight": 0.6123557730919139}, {"from": 20, "to": 28, "weight": 0.6714422436101815}, {"from": 20, "to": 29, "weight": 0.4368921487427935}, {"from": 20, "to": 30, "weight": 0.446790014647993}, {"from": 21, "to": 22, "weight": 0.5491097771676866}, {"from": 21, "to": 23, "weight": 0.4523188542506024}, {"from": 21, "to": 25, "weight": 0.5308560552120857}, {"from": 21, "to": 26, "weight": 0.604149585168856}, {"from": 21, "to": 27, "weight": 0.7551561422423761}, {"from": 21, "to": 28, "weight": 0.48778260331698914}, {"from": 21, "to": 29, "weight": 0.40410973938876654}, {"from": 22, "to": 23, "weight": 0.6763011925462542}, {"from": 22, "to": 25, "weight": 0.60367433074401}, {"from": 22, "to": 26, "weight": 0.7046920859014348}, {"from": 22, "to": 27, "weight": 0.5598709191765114}, {"from": 22, "to": 28, "weight": 0.8040199431864963}, {"from": 22, "to": 29, "weight": 0.6547917167407914}, {"from": 23, "to": 26, "weight": 0.4646328649214578}, {"from": 23, "to": 27, "weight": 0.5088854426044914}, {"from": 23, "to": 28, "weight": 0.6531489407566586}, {"from": 23, "to": 29, "weight": 0.8048802341727803}, {"from": 24, "to": 25, "weight": 0.48048827996270926}, {"from": 24, "to": 26, "weight": 0.44666972678812883}, {"from": 24, "to": 30, "weight": 0.6279906375058915}, {"from": 24, "to": 32, "weight": 0.48816720392364354}, {"from": 24, "to": 40, "weight": 0.47483846762153936}, {"from": 25, "to": 26, "weight": 0.6517195785105856}, {"from": 25, "to": 27, "weight": 0.4823537189460552}, {"from": 25, "to": 28, "weight": 0.5524152959674051}, {"from": 25, "to": 30, "weight": 0.4769313780810495}, {"from": 25, "to": 32, "weight": 0.4164836191005666}, {"from": 26, "to": 27, "weight": 0.6143183286428001}, {"from": 26, "to": 28, "weight": 0.681033977357768}, {"from": 26, "to": 29, "weight": 0.44598911127514634}, {"from": 26, "to": 30, "weight": 0.45737411145378815}, {"from": 27, "to": 28, "weight": 0.5108077053824317}, {"from": 27, "to": 29, "weight": 0.48634330638021905}, {"from": 28, "to": 29, "weight": 0.7249697952115527}, {"from": 30, "to": 32, "weight": 0.49831738449459156}, {"from": 30, "to": 33, "weight": 0.4128783986423966}, {"from": 30, "to": 40, "weight": 0.479111232425991}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"interaction": {"hover": true, "multiselect": true, "navigationButtons": true, "tooltipDelay": 150}, "manipulation": {"enabled": true, "initiallyActive": true}, "physics": {"repulsion": {"springLength": 65}, "maxVelocity": 9, "minVelocity": 0.75, "solver": "repulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
