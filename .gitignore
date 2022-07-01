@@ -1,4 +1,1 @@
-./.ipnyb_*
-./sigopt-examples/
-sigopt-examples
 data/mlflow.sqlite3
