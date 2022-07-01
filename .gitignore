@@ -1,1 +1,2 @@
-/.ipnyb_*
+./.ipnyb_*
+./sigopt-examples/
