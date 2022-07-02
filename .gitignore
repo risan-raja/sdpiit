@@ -7,3 +7,6 @@ data/workflows_nom_min_5.pkl
 data/workflows.pkl
 */.ipnyb_checkpoints/*
 3ipynb_checkpoints/.gitignore-checkpoint
+notebooks/.ipynb_checkpoints/EDA_v2-checkpoint.ipynb
+notebooks/.ipynb_checkpoints/*
+.ipynb_checkpoints/*
