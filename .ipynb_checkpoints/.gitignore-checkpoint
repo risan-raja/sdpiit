@@ -1,8 +1,0 @@
-data/mlflow.sqlite3
-**/*.pdf
-data/ovr_workflows.pkl
-data/workflows_0_01.pkl
-data/workflows_0_02.pkl
-data/workflows_nom_min_5.pkl
-data/workflows.pkl
-*/.ipnyb_checkpoints/*
