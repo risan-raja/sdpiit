@@ -10,3 +10,4 @@ data/workflows.pkl
 notebooks/.ipynb_checkpoints/EDA_v2-checkpoint.ipynb
 notebooks/.ipynb_checkpoints/*
 .ipynb_checkpoints/*
+data/bgclf.pkl
