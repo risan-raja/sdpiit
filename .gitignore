@@ -1,4 +1,5 @@
 data/mlflow.sqlite3
+data/automl/*
 **/*.pdf
 data/ovr_workflows.pkl
 data/workflows_0_01.pkl
@@ -11,3 +12,4 @@ notebooks/.ipynb_checkpoints/EDA_v2-checkpoint.ipynb
 notebooks/.ipynb_checkpoints/*
 .ipynb_checkpoints/*
 data/bgclf.pkl
+notebooks/dask-worker-space
