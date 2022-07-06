@@ -13,3 +13,6 @@ notebooks/.ipynb_checkpoints/*
 .ipynb_checkpoints/*
 data/bgclf.pkl
 notebooks/dask-worker-space
+reports/simplified_files/*
+imgs/.ipynb_checkpoints/*
+reports/simplified*
