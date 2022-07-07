@@ -16,3 +16,5 @@ notebooks/dask-worker-space
 reports/simplified_files/*
 imgs/.ipynb_checkpoints/*
 reports/simplified*
+data/tpot/*
+data/tpot*
