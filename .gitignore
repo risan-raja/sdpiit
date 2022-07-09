@@ -18,5 +18,6 @@ imgs/.ipynb_checkpoints/*
 reports/simplified*
 data/tpot/*
 data/tpot*
-FSketch/__pycache__/__init__.cpython-39.pyc
+FSketch/__pycache__/*
 FSketch/__pycache__/FSketch.cpython-39.pyc
+FSketch/.ipynb_checkpoints/*
