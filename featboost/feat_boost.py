@@ -14,7 +14,7 @@ from warnings import warn
 import numpy as np
 from sklearn.base import BaseEstimator
 from sklearn.metrics import accuracy_score, f1_score
-from sklearn.model_selection import KFold
+from sklearn.model_selection import RepeatedStratifiedKFold as KFold
 
 
 class FeatBoostClassifier(BaseEstimator):
@@ -467,7 +467,7 @@ class FeatBoostClassifier(BaseEstimator):
         # Get a ranking of features based on the estimator.
         ranking, self.all_ranking_ = self._input_ranking(X, Y, iteration_number)
         self.siso_ranking_[(iteration_number - 1), :] = ranking
-        kf = KFold(n_splits=self.number_of_folds, shuffle=True, random_state=275)
+        kf = KFold(n_splits=self.number_of_folds)
         # Combination of features from the ranking up to siso_order size
         combs = []
         for i in range(self.siso_order):
@@ -543,7 +543,7 @@ class FeatBoostClassifier(BaseEstimator):
         time and also computes the updated weights of the samples.
         """
         warnings.filterwarnings("ignore")
-        kf = KFold(n_splits=self.number_of_folds, shuffle=True, random_state=275)
+        kf = KFold(n_splits=self.number_of_folds)
         count = 1
         acc_t_folds = np.zeros((self.number_of_folds, 1))
         # Compute the accuracy of the selected features one addition at a time.

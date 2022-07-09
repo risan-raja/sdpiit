@@ -22,3 +22,5 @@ FSketch/__pycache__/*
 FSketch/__pycache__/FSketch.cpython-39.pyc
 FSketch/.ipynb_checkpoints/*
 data/tmp/*
+featboost/.ipynb_checkpoints/*
+featboost/__pycache__/*
