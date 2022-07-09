@@ -21,3 +21,4 @@ data/tpot*
 FSketch/__pycache__/*
 FSketch/__pycache__/FSketch.cpython-39.pyc
 FSketch/.ipynb_checkpoints/*
+data/tmp/*
