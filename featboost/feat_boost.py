@@ -317,6 +317,7 @@ class FeatBoostClassifier(BaseEstimator):
                     X[:, self._all_selected_variables], Y, iteration_number
                 )
                 # Accuracy of selected feature is stored in accuracy_.
+                # print(acc_t_miso)
                 self.accuracy_.append(acc_t_miso)
                 if self.verbose > 1:
                     print(

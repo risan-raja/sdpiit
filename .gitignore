@@ -24,3 +24,6 @@ FSketch/.ipynb_checkpoints/*
 data/tmp/*
 featboost/.ipynb_checkpoints/*
 featboost/__pycache__/*
+.idea/*
+/data/tmp3/*
+/data/tmp*/*
