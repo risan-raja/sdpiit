@@ -36,3 +36,5 @@ notebooks/print_table/.ipynb_checkpoints/Tablify-checkpoint.py
 notebooks/print_table/.ipynb_checkpoints/__init__-checkpoint.py
 notebooks/print_table/__pycache__/Tablify.cpython-39.pyc
 notebooks/print_table/__pycache__/__init__.cpython-39.pyc
+notebooks/catboost_info/*
+notebooks/catboost_info/learn_error.tsv
