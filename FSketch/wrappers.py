@@ -7,7 +7,6 @@ import pandas as pd
 import numpy as np
 
 
-
 class PolynomialWrapper(BaseEstimator, TransformerMixin):
     """Extend supervised encoders to n-class labels, where n >= 2.
 
@@ -53,18 +52,25 @@ class PolynomialWrapper(BaseEstimator, TransformerMixin):
     def fit(self, X, y, **kwargs):
         # unite the input into pandas types
         X, y = utils.convert_inputs(X, y)
-        y = pd.DataFrame(y, columns=['target'])
+        y = pd.DataFrame(y, columns=["target"])
 
         # apply one-hot-encoder on the label
-        self.label_encoder = encoders.OneHotEncoder(handle_missing='error', handle_unknown='error', cols=['target'], drop_invariant=False,
-                                                    use_cat_names=True)
+        self.label_encoder = encoders.OneHotEncoder(
+            handle_missing="error",
+            handle_unknown="error",
+            cols=["target"],
+            drop_invariant=False,
+            use_cat_names=True,
+        )
         labels = self.label_encoder.fit_transform(y)
         labels.columns = [column[7:] for column in labels.columns]
         # labels = labels.iloc[:, 1:]  # drop one label
 
         # train the feature encoders
         for class_name, label in labels.iteritems():
-            self.feature_encoders[class_name] = copy.deepcopy(self.feature_encoder).fit(X, label)
+            self.feature_encoders[class_name] = copy.deepcopy(self.feature_encoder).fit(
+                X, label
+            )
 
     def transform(self, X):
         # unite the input into pandas types
@@ -81,29 +87,41 @@ class PolynomialWrapper(BaseEstimator, TransformerMixin):
 
             # decorate the encoded features with the label class suffix
             new_features = encoded[feature_encoder.cols]
-            new_features.columns = [str(column) + '_' + class_name for column in new_features.columns]
+            new_features.columns = [
+                str(column) + "_" + class_name for column in new_features.columns
+            ]
 
             all_new_features = pd.concat((all_new_features, new_features), axis=1)
 
         # add features that were not encoded
-        result = pd.concat((encoded[encoded.columns[~encoded.columns.isin(feature_encoder.cols)]], all_new_features), axis=1)
+        result = pd.concat(
+            (
+                encoded[encoded.columns[~encoded.columns.isin(feature_encoder.cols)]],
+                all_new_features,
+            ),
+            axis=1,
+        )
 
         return result
-
 
     def fit_transform(self, X, y=None, **fit_params):
         # When we are training the feature encoders, we have to use fit_transform() method on the features.
 
         # unite the input into pandas types
         X, y = utils.convert_inputs(X, y)
-        y = pd.DataFrame(y, columns=['target'])
+        y = pd.DataFrame(y, columns=["target"])
 
         # apply one-hot-encoder on the label
-        self.label_encoder = encoders.OneHotEncoder(handle_missing='error', handle_unknown='error', cols=['target'], drop_invariant=True,
-                                                    use_cat_names=True)
+        self.label_encoder = encoders.OneHotEncoder(
+            handle_missing="error",
+            handle_unknown="error",
+            cols=["target"],
+            drop_invariant=True,
+            use_cat_names=True,
+        )
         labels = self.label_encoder.fit_transform(y)
         labels.columns = [column[7:] for column in labels.columns]
-        labels = labels.iloc[:, 1:]  # drop one label
+        # labels = labels.iloc[:, 1:]  # drop one label
 
         # initialization of the feature encoders
         encoded = None
@@ -117,17 +135,23 @@ class PolynomialWrapper(BaseEstimator, TransformerMixin):
 
             # decorate the encoded features with the label class suffix
             new_features = encoded[feature_encoder.cols]
-            new_features.columns = [str(column) + '_' + class_name for column in new_features.columns]
+            new_features.columns = [
+                str(column) + "_" + class_name for column in new_features.columns
+            ]
 
             all_new_features = pd.concat((all_new_features, new_features), axis=1)
             self.feature_encoders[class_name] = feature_encoder
 
         # add features that were not encoded
-        result = pd.concat((encoded[encoded.columns[~encoded.columns.isin(feature_encoder.cols)]], all_new_features), axis=1)
+        result = pd.concat(
+            (
+                encoded[encoded.columns[~encoded.columns.isin(feature_encoder.cols)]],
+                all_new_features,
+            ),
+            axis=1,
+        )
 
         return result
-
-
 
 
 class NestedCVWrapper(BaseEstimator, TransformerMixin):
@@ -210,10 +234,11 @@ class NestedCVWrapper(BaseEstimator, TransformerMixin):
         self.random_state = random_state
 
         if type(cv) == int:
-            self.cv = StratifiedKFold(n_splits=cv, shuffle=shuffle, random_state=random_state)
+            self.cv = StratifiedKFold(
+                n_splits=cv, shuffle=shuffle, random_state=random_state
+            )
         else:
             self.cv = cv
-
 
     def fit(self, X, y, **kwargs):
         """
@@ -221,15 +246,11 @@ class NestedCVWrapper(BaseEstimator, TransformerMixin):
         """
         self.feature_encoder.fit(X, y, **kwargs)
 
-
-
     def transform(self, X):
         """
         Calls transform on the base feature_encoder without nested cross validation
         """
         return self.feature_encoder.transform(X)
-
-
 
     def fit_transform(self, X, y=None, X_test=None, groups=None, **fit_params):
         """
@@ -267,9 +288,11 @@ class NestedCVWrapper(BaseEstimator, TransformerMixin):
             return out_of_fold
         else:
             if type(X_test) == tuple:
-                encoded_data = (out_of_fold, )
+                encoded_data = (out_of_fold,)
                 for dataset in X_test:
-                    encoded_data = encoded_data + (self.feature_encoder.transform(dataset), )
+                    encoded_data = encoded_data + (
+                        self.feature_encoder.transform(dataset),
+                    )
                 return encoded_data
             else:
                 return out_of_fold, self.feature_encoder.transform(X_test)

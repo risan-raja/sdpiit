@@ -7,9 +7,9 @@ def gen_adj_list(threshold, data=data):
     corr_mat = data.corr()
     for c in data.columns:
         # adj_list[c].append()
-        e = list(corr_mat[corr_mat[c]>=threshold][c].index)
+        e = list(corr_mat[corr_mat[c] >= threshold][c].index)
         e.remove(c)
-        adj_list[c]=e
+        adj_list[c] = e
         # print(e)
         # break
     return adj_list
@@ -19,20 +19,20 @@ adj_list = gen_adj_list(0.9, data=data)
 
 
 # Adding Nodes
-def addfnetnodes(nets,data):
+def addfnetnodes(nets, data):
     for c, f in enumerate(data.columns):
         colr = None
-        if 'nom' in f:
+        if "nom" in f:
             colr = "#008000"
-        elif 'ord' in f:
-            colr = '#800080'
-        elif 'bin' in f:
-            colr = '#FFEC00'
-        elif 'label' in f:
-            colr = '#D800FF'
+        elif "ord" in f:
+            colr = "#800080"
+        elif "bin" in f:
+            colr = "#FFEC00"
+        elif "label" in f:
+            colr = "#D800FF"
         else:
-            colr = '#FF0083'
-        nets.add_node(c,label=f,shape='circle',color=colr)
+            colr = "#FF0083"
+        nets.add_node(c, label=f, shape="circle", color=colr)
     return nets
 
 
@@ -42,18 +42,26 @@ def addfnetedges(nt: Network, nnli):
     for nd in adj_list:
         if len(adj_list[nd]) > 0:
             for conn in adj_list[nd]:
-                nt.add_edge(nnli[nd], nnli[conn], weight=corr_mat.loc[nd,conn])
+                nt.add_edge(nnli[nd], nnli[conn], weight=corr_mat.loc[nd, conn])
     return nt
 
 
 def draw_feature_network():
     global data, adj_list
-    fnet = Network(notebook=False,heading='Clustering of Features',height='1080px', width='2000px',font_color='#46ff00',bgcolor="#9ed6c8")
-    fnet = addfnetnodes(fnet,data)
-    nnli = {f['label']:f['id'] for f in fnet.nodes} #  net_node_label_ids
-    fnet = addfnetedges(fnet,nnli)
+    fnet = Network(
+        notebook=False,
+        heading="Clustering of Features",
+        height="1080px",
+        width="2000px",
+        font_color="#46ff00",
+        bgcolor="#9ed6c8",
+    )
+    fnet = addfnetnodes(fnet, data)
+    nnli = {f["label"]: f["id"] for f in fnet.nodes}  #  net_node_label_ids
+    fnet = addfnetedges(fnet, nnli)
     fnet.toggle_physics(True)
-    fnet.set_options("""
+    fnet.set_options(
+        """
         const options = {
         "edges": {
         "color": {
@@ -96,10 +104,12 @@ def draw_feature_network():
         }
         }
         }
-        """)
+        """
+    )
     return fnet
+
 
 fnet = draw_feature_network()
 # fnet.show_buttons()
 
-fnet.show('../reports/feature_network.html')
+fnet.show("../reports/feature_network.html")
