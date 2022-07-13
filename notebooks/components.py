@@ -101,4 +101,7 @@ class ColumnSelectors:
         self.__nominal = [i for i in self.dtype_info if self.dtype_info[i] == "Nominal"]
         self.__binary = [i for i in self.dtype_info if self.dtype_info[i] == "Binary"]
         self.__ratio = [i for i in self.dtype_info if self.dtype_info[i]==  "Ratio"]
-        self.ordinal = make_column_selector(pattern='')
+        self.ordinal = make_column_selector(pattern='|'.join(self.__ordinal),)
+        self.nominal = make_column_selector(pattern='|'.join(self.__nominal),)
+        self.binary = make_column_selector(pattern='|'.join(self.__binary),)
+        self.ratio = make_column_selector(pattern='|'.join(self.__ratio),)
