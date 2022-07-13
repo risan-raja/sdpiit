@@ -1,56 +1,15 @@
-from sklearnex import patch_sklearn
-
-patch_sklearn()
-
 import warnings
-
 import numpy as np
 import pandas as pd
-from category_encoders import (BackwardDifferenceEncoder, BaseNEncoder,
-                               BinaryEncoder, CatBoostEncoder, CountEncoder,
-                               GLMMEncoder, HelmertEncoder, JamesSteinEncoder,
-                               LeaveOneOutEncoder, MEstimateEncoder,
-                               QuantileEncoder, SummaryEncoder, TargetEncoder,
-                               WOEEncoder)
-from sklearn import set_config
-from sklearn.base import clone as model_clone
-from sklearn.cluster import *
-from sklearn.compose import *
-from sklearn.cross_decomposition import *
-from sklearn.decomposition import *
-from sklearn.ensemble import *
-from sklearn.feature_selection import *
-from sklearn.gaussian_process import *
-from sklearn.linear_model import *
-from sklearn.metrics import *
-from sklearn.model_selection import *
-from sklearn.multioutput import *
-from sklearn.naive_bayes import *
-from sklearn.neighbors import *
-from sklearn.neural_network import *
-from sklearn.pipeline import *
-from sklearn.preprocessing import *
-from sklearn.svm import *
-from sklearn.tree import *
-from sklearn.utils import *
-from tqdm import tqdm, trange
-from xgboost import XGBClassifier, XGBRFClassifier
-
 pd.options.plotting.backend = "plotly"
 pd.options.display.max_columns = 50
+from sklearn import set_config
 set_config(display="diagram")
 warnings.filterwarnings("ignore")
-import pickle
-from collections import defaultdict
-
 import matplotlib.pyplot as plt
 import seaborn as sns
-from joblib import parallel_backend
-from joblib.memory import Memory
-
 sns.set()
-from pprint import pprint
-
+from sklearn.compose import make_column_selector
 
 class ColumnSelectors:
     def __init__(self, default=None):
@@ -97,24 +56,58 @@ class ColumnSelectors:
             "v_36": "Ratio",
             "v_35": "Ratio",
         }
-        self.ordinal_cols = [i for i in self.dtype_info if self.dtype_info[i] ==  "Ordinal"]
-        self.nominal_cols = [i for i in self.dtype_info if self.dtype_info[i] == "Nominal"]
-        self.binary_cols = [i for i in self.dtype_info if self.dtype_info[i] == "Binary"]
-        self.ratio_cols = [i for i in self.dtype_info if self.dtype_info[i]==  "Ratio"]
-        self.ordinal = make_column_selector(pattern='|'.join(self.ordinal_cols),)
-        self.nominal = make_column_selector(pattern='|'.join(self.nominal_cols),)
-        self.binary = make_column_selector(pattern='|'.join(self.binary_cols),)
-        self.ratio = make_column_selector(pattern='|'.join(self.ratio_cols),)
-        
+        self.ordinal_cols = [
+            i for i in self.dtype_info if self.dtype_info[i] == "Ordinal"
+        ]
+        self.nominal_cols = [
+            i for i in self.dtype_info if self.dtype_info[i] == "Nominal"
+        ]
+        self.binary_cols = [
+            i for i in self.dtype_info if self.dtype_info[i] == "Binary"
+        ]
+        self.ratio_cols = [i for i in self.dtype_info if self.dtype_info[i] == "Ratio"]
+        self.ordinal = make_column_selector(
+            pattern="|".join(self.ordinal_cols),
+        )
+        self.nominal = make_column_selector(
+            pattern="|".join(self.nominal_cols),
+        )
+        self.binary = make_column_selector(
+            pattern="|".join(self.binary_cols),
+        )
+        self.ratio = make_column_selector(
+            pattern="|".join(self.ratio_cols),
+        )
+
     def ordinal_selector(self):
         return self.ordinal
-    
+
     def nominal_selector(self):
         return self.nominal
-    
+
     def binary_selector(self):
         return self.binary
-    
+
     def ratio_selector(self):
         return self.ratio
     
+
+def plot_mean_std_max(d_coll: list[tuple[float, float, float, float]]):
+    """
+    :param d_coll: list[tuple[float, float, float, float]
+    list of data points in the format
+    (abcissa, mean, std, max)
+    """
+    sns.set()
+    ddx = [x for x, y, u, r in d_coll]
+    ddc = [y for x, y, u, r in d_coll]
+    ddep = [y + u for x, y, u, r in d_coll]
+    dden = [y - u for x, y, u, r in d_coll]
+    ddem = [r for x, y, u, r in d_coll]
+    plt.plot(ddx, ddc, "b", label="\u00b5")
+    plt.plot(ddx, ddep, "r", label="\u03c3" + "+")
+    plt.plot(ddx, dden, "g", label="\u03c3" + "-")
+    plt.plot(ddx, ddem, "y", label="\u03c3" + "max")
+    fig = plt.fill_between(ddx, ddep, dden, alpha=0.5)
+    fig = plt.legend()
+    plt.show()
