@@ -17,49 +17,48 @@ from sklearn.compose import make_column_selector
 
 class ColumnSelectors:
     def __init__(self, default=None):
-        self.dtype_info = {
-            "v_1": "Binary",
-            "v_26": "Binary",
-            "v_11": "Binary",
-            "v_14": "Binary",
-            "v_30": "Binary",
-            "v_28": "Binary",
-            "v_9": "Binary",
-            "v_27": "Binary",
-            "v_32": "Nominal",
-            "v_4": "Nominal",
-            "v_3": "Nominal",
-            "v_20": "Nominal",
-            "v_21": "Nominal",
-            "v_18": "Nominal",
-            "v_25": "Nominal",
-            "v_12": "Nominal",
-            "v_31": "Ordinal",
-            "v_15": "Ordinal",
-            "v_19": "Ordinal",
-            "v_13": "Ordinal",
-            "v_33": "Ordinal",
-            "v_17": "Ordinal",
-            "v_29": "Ordinal",
-            "v_23": "Ordinal",
-            "v_6": "Ordinal",
-            "v_24": "Ordinal",
-            "v_10": "Ordinal",
-            "v_5": "Ordinal",
-            "v_22": "Ordinal",
-            "v_0": "Ordinal",
-            "v_16": "Ratio",
-            "v_2": "Ratio",
-            "v_8": "Ratio",
-            "v_7": "Ratio",
-            "v_39": "Ratio",
-            "v_37": "Ratio",
-            "v_38": "Ratio",
-            "v_34": "Ratio",
-            "v_40": "Ratio",
-            "v_36": "Ratio",
-            "v_35": "Ratio",
-        }
+        self.dtype_info = {'binary__v_1': 'Binary',
+                         'binary__v_11': 'Binary',
+                         'binary__v_14': 'Binary',
+                         'binary__v_26': 'Binary',
+                         'binary__v_27': 'Binary',
+                         'binary__v_28': 'Binary',
+                         'binary__v_30': 'Binary',
+                         'binary__v_9': 'Binary',
+                         'nominal__v_12': 'Nominal',
+                         'nominal__v_18': 'Nominal',
+                         'nominal__v_20': 'Nominal',
+                         'nominal__v_21': 'Nominal',
+                         'nominal__v_25': 'Nominal',
+                         'nominal__v_3': 'Nominal',
+                         'nominal__v_32': 'Nominal',
+                         'nominal__v_4': 'Nominal',
+                         'ordinal__v_0': 'Ordinal',
+                         'ordinal__v_10': 'Ordinal',
+                         'ordinal__v_13': 'Ordinal',
+                         'ordinal__v_15': 'Ordinal',
+                         'ordinal__v_17': 'Ordinal',
+                         'ordinal__v_19': 'Ordinal',
+                         'ordinal__v_22': 'Ordinal',
+                         'ordinal__v_23': 'Ordinal',
+                         'ordinal__v_24': 'Ordinal',
+                         'ordinal__v_29': 'Ordinal',
+                         'ordinal__v_31': 'Ordinal',
+                         'ordinal__v_33': 'Ordinal',
+                         'ordinal__v_5': 'Ordinal',
+                         'ordinal__v_6': 'Ordinal',
+                         'ratio__v_16': 'Ratio',
+                         'ratio__v_2': 'Ratio',
+                         'ratio__v_34': 'Ratio',
+                         'ratio__v_35': 'Ratio',
+                         'ratio__v_36': 'Ratio',
+                         'ratio__v_37': 'Ratio',
+                         'ratio__v_38': 'Ratio',
+                         'ratio__v_39': 'Ratio',
+                         'ratio__v_40': 'Ratio',
+                         'ratio__v_7': 'Ratio',
+                         'ratio__v_8': 'Ratio'}
+
         self.ordinal_cols = [
             i for i in self.dtype_info if self.dtype_info[i] == "Ordinal"
         ]
@@ -115,3 +114,16 @@ def plot_mean_std_max(d_coll: list[tuple[float, float, float, float]]):
     fig = plt.fill_between(ddx, ddep, dden, alpha=0.5)
     fig = plt.legend()
     plt.show()
+# for c in ratio:
+#     final_data.rename(columns={c:"ratio__"+c}, inplace=True)
+#     final_data.sort_index(axis=1,inplace=True)    
+#     final_pred_data.rename(columns={c:"ratio__"+c}, inplace=True)
+#     final_pred_data.sort_index(axis=1,inplace=True)
+#     master_data.rename(columns={c:"ratio__"+c}, inplace=True)
+#     master_data.sort_index(axis=1,inplace=True)
+#     given_data.rename(columns={c:"ratio__"+c}, inplace=True)
+#     given_data.sort_index(axis=1,inplace=True)
+#     data_logit.rename(columns={c:"ratio__"+c}, inplace=True)
+#     data_logit.sort_index(axis=1,inplace=True)
+#     baseline_prediction_data.rename(columns={c:"ratio__"+c}, inplace=True)
+#     baseline_prediction_data.sort_index(axis=1,inplace=True)

@@ -54,15 +54,15 @@ class DFCollection:
         self.core_names = [x.split(".")[0] for x in self.save_paths]
         self.final_data.rename(columns={"label": "target"}, inplace=True)
         self.data.rename(columns={"label": "target"}, inplace=True)
-        self.nominal_categories = []
+        self.nominal_categories = {}
         for nc in self.c_sel.nominal_cols:
             ncs=self.master.loc[:,nc].unique()
-            self.nominal_categories.append(ncs)
+            self.nominal_categories[nc] = ncs
 
-        self.ordinal_categories = []
+        self.ordinal_categories = {}
         for nc in self.c_sel.ordinal_cols:
             ncs=self.master.loc[:,nc].unique()
-            self.ordinal_categories.append(ncs)
+            self.ordinal_categories[nc] = ncs
 
     @staticmethod
     def __save__(df: pd.DataFrame, loc: str):
