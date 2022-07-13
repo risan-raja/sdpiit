@@ -38,3 +38,4 @@ notebooks/print_table/__pycache__/Tablify.cpython-39.pyc
 notebooks/print_table/__pycache__/__init__.cpython-39.pyc
 notebooks/catboost_info/*
 notebooks/catboost_info/learn_error.tsv
+modules/helpers/__pycache__/tablify.cpython-39.pyc
