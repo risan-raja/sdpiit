@@ -2,46 +2,52 @@ from sklearnex import patch_sklearn
 
 patch_sklearn()
 
-from sklearn.pipeline import *
-from sklearn.metrics import *
-from sklearn.preprocessing import *
-from sklearn.neighbors import *
-from sklearn.neural_network import *
+import warnings
+
+import numpy as np
+import pandas as pd
+from category_encoders import (BackwardDifferenceEncoder, BaseNEncoder,
+                               BinaryEncoder, CatBoostEncoder, CountEncoder,
+                               GLMMEncoder, HelmertEncoder, JamesSteinEncoder,
+                               LeaveOneOutEncoder, MEstimateEncoder,
+                               QuantileEncoder, SummaryEncoder, TargetEncoder,
+                               WOEEncoder)
+from sklearn import set_config
+from sklearn.base import clone as model_clone
 from sklearn.cluster import *
 from sklearn.compose import *
 from sklearn.cross_decomposition import *
 from sklearn.decomposition import *
 from sklearn.ensemble import *
-from sklearn.linear_model import *
 from sklearn.feature_selection import *
 from sklearn.gaussian_process import *
+from sklearn.linear_model import *
+from sklearn.metrics import *
 from sklearn.model_selection import *
-from sklearn.svm import *
-from sklearn.tree import *
 from sklearn.multioutput import *
 from sklearn.naive_bayes import *
-from sklearn.base import clone as model_clone
+from sklearn.neighbors import *
+from sklearn.neural_network import *
+from sklearn.pipeline import *
+from sklearn.preprocessing import *
+from sklearn.svm import *
+from sklearn.tree import *
 from sklearn.utils import *
-from sklearn import set_config
-import warnings
-import pandas as pd
-import numpy as np
-from category_encoders import (BackwardDifferenceEncoder, BinaryEncoder, CatBoostEncoder, GLMMEncoder, MEstimateEncoder,
-                               QuantileEncoder, JamesSteinEncoder, HelmertEncoder, LeaveOneOutEncoder, TargetEncoder,
-                               SummaryEncoder, WOEEncoder, BaseNEncoder, CountEncoder)
-from xgboost import XGBRFClassifier, XGBClassifier
 from tqdm import tqdm, trange
+from xgboost import XGBClassifier, XGBRFClassifier
 
 pd.options.plotting.backend = "plotly"
 pd.options.display.max_columns = 50
 set_config(display="diagram")
 warnings.filterwarnings("ignore")
-from joblib.memory import Memory
-from joblib import parallel_backend
 import pickle
+from collections import defaultdict
+
 import matplotlib.pyplot as plt
 import seaborn as sns
-from collections import defaultdict
+from joblib import parallel_backend
+from joblib.memory import Memory
+
 sns.set()
 from pprint import pprint
 
@@ -91,7 +97,8 @@ class ColumnSelectors:
             "v_36": "Ratio",
             "v_35": "Ratio",
         }
-        ordinal = [i for i in self.dtype_info if self.dtype_info[i] == "Ordinal"]
-        nominal = [i for i in self.dtype_info if self.dtype_info[i] == "Nominal"]
-        binary = [i for i in self.dtype_info if self.dtype_info[i] == "Binary"]
-        ratio = [i for i in self.dtype_info if dtype_info[i] == "Ratio"]
+        self.__ordinal = [i for i in self.dtype_info if self.dtype_info[i] ==  "Ordinal"]
+        self.__nominal = [i for i in self.dtype_info if self.dtype_info[i] == "Nominal"]
+        self.__binary = [i for i in self.dtype_info if self.dtype_info[i] == "Binary"]
+        self.__ratio = [i for i in self.dtype_info if self.dtype_info[i]==  "Ratio"]
+        self.ordinal = make_column_selector(pattern='')

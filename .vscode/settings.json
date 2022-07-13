@@ -1,0 +1,19 @@
+{
+    "files.exclude": {
+        "**/.idea": true,
+        "**/.ip*": true,
+        "**/.v*": true
+    },
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
+    "explorer.fileNesting.enabled": true,
+    "git.alwaysSignOff": true,
+    "jupyter.allowUnauthorizedRemoteConnection": true,
+    "jupyter.generateSVGPlots": true,
+    "python.analysis.completeFunctionParens": true,
+    "python.analysis.diagnosticMode": "openFilesOnly",
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "editor.insertSpaces": true,
+    "python.formatting.provider": "black",
+    "editor.wordWrapColumn": 150
+}
