@@ -41,3 +41,4 @@ notebooks/catboost_info/learn_error.tsv
 modules/helpers/__pycache__/*
 data/joblib_memory/joblib/sklearn/pipeline/_fit_transform_one/0e08bc7fcde455f6a241a9dc747eab8b/metadata.json
 data/joblib_memory/joblib/sklearn/pipeline/_fit_transform_one/0fdf1b9db3d6d083dd9a66694d2e1c1b/output.pkl
+data/joblib_memory/joblib/sklearn/pipeline/_fit_transform_one/a1af8426846469f2fa82e3b3b58f2539/metadata.json
