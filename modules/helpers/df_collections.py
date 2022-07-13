@@ -10,6 +10,8 @@ class DFCollection:
     """
 
     def __init__(self):
+        self.c_sel = ColumnSelectors()
+        
         self.file_path = "/home/mlop3n/PycharmProjects/sdpiit/data/"
         self.data = pd.read_parquet(
             self.file_path + "train.parquet", engine="fastparquet"
@@ -52,6 +54,15 @@ class DFCollection:
         self.core_names = [x.split(".")[0] for x in self.save_paths]
         self.final_data.rename(columns={"label": "target"}, inplace=True)
         self.data.rename(columns={"label": "target"}, inplace=True)
+        self.nominal_categories = []
+        for nc in self.c_sel.nominal_cols:
+            ncs=self.master.loc[:,nc].unique()
+            self.nominal_categories.append(ncs)
+
+        self.ordinal_categories = []
+        for nc in self.c_sel.ordinal_cols:
+            ncs=self.master.loc[:,nc].unique()
+            self.ordinal_categories.append(ncs)
 
     @staticmethod
     def __save__(df: pd.DataFrame, loc: str):
@@ -93,21 +104,23 @@ class DFCollection:
             return
 
     def categorise_data(self, df: pd.DataFrame = None):
-        c_sel = ColumnSelectors()
 
         if isinstance(df, pd.DataFrame):
-            ordinal_data = df.loc[:, c_sel.ordinal_cols]
-            nominal_data = df.loc[:, c_sel.nominal_cols]
-            binary_data = df.loc[:, c_sel.binary_cols]
-            ratio_data = df.loc[:, c_sel.ratio_cols]
+            ordinal_data = df.loc[:, self.c_sel.ordinal_cols]
+            nominal_data = df.loc[:, self.c_sel.nominal_cols]
+            binary_data = df.loc[:, self.c_sel.binary_cols]
+            ratio_data = df.loc[:, self.c_sel.ratio_cols]
         else:
             df = self.final_data
-            ordinal_data = df.loc[:, c_sel.ordinal_cols]
-            nominal_data = df.loc[:, c_sel.nominal_cols]
-            binary_data = df.loc[:, c_sel.binary_cols]
-            ratio_data = df.loc[:, c_sel.ratio_cols]
+            ordinal_data = df.loc[:, self.c_sel.ordinal_cols]
+            nominal_data = df.loc[:, self.c_sel.nominal_cols]
+            binary_data = df.loc[:, self.c_sel.binary_cols]
+            ratio_data = df.loc[:, self.c_sel.ratio_cols]
         return ordinal_data, nominal_data, binary_data, ratio_data
-
-
+    
+    
+    
+    
+    
 if __name__ == "__main__":
     db = DFCollection()
