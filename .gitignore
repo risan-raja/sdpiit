@@ -28,6 +28,7 @@ featboost/__pycache__/*
 /data/tmp3/*
 /data/tmp*/*
 wheel/*
+/.mypy_cache/*
 .venv/*
 */__*/
 
