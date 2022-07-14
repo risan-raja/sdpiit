@@ -43,3 +43,5 @@ data/joblib_memory/joblib/*
 data/joblib_memory/joblib/sklearn/pipeline/_fit_transform_one/0fdf1b9db3d6d083dd9a66694d2e1c1b/output.pkl
 data/joblib_memory/joblib/sklearn/pipeline/_fit_transform_one/a1af8426846469f2fa82e3b3b58f2539/metadata.json
 data/joblib_memory/joblib/sklearn/pipeline/_fit_transform_one/7858281fa971032a9a3ddf8f71a58b3f/output.pkl
+reports/.ipynb_checkpoints/cat_encoders_ordinal_data-checkpoint.md
+reports/.ipynb_checkpoints/QDA-checkpoint.md
