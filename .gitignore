@@ -49,3 +49,6 @@ reports/.ipynb_checkpoints/QDA-checkpoint.md
 reports/.ipynb_checkpoints/Logit Data Performance-checkpoint.md
 =7.6
 Pipfile
+modules/helpers/__pycache__/*
+modules/helpers/__pycache__/__init__.cpython-39.pyc
+modules/helpers/.ipynb_checkpoints/mod_multiclass-checkpoint.py
