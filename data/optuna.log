@@ -1,0 +1,510 @@
+A new study created in RDB with name: no-name-b6d3ebf3-1306-47b2-a6e8-6cced03a7eca
+Start optimization.
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+Trial 0 finished with value: 0.965034965034965 and parameters: {'booster': 'dart', 'lambda': 1.0985631145220288e-07, 'alpha': 7.416506049235358e-08, 'max_depth': 5, 'eta': 0.00016348144328460237, 'gamma': 0.0005161048063784897, 'grow_policy': 'lossguide', 'sample_type': 'uniform', 'normalize_type': 'tree', 'rate_drop': 9.94486490117101e-07, 'skip_drop': 1.0929816380831046e-07}. Best is trial 0 with value: 0.965034965034965.
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+Trial 1 finished with value: 0.951048951048951 and parameters: {'booster': 'dart', 'lambda': 1.600692302208184e-05, 'alpha': 0.169527957731975, 'max_depth': 9, 'eta': 0.013252908139669669, 'gamma': 0.00017932962938334534, 'grow_policy': 'depthwise', 'sample_type': 'weighted', 'normalize_type': 'forest', 'rate_drop': 1.8275340250681522e-05, 'skip_drop': 1.5993451430838158e-07}. Best is trial 1 with value: 0.951048951048951.
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+Trial 2 finished with value: 0.8881118881118881 and parameters: {'booster': 'gbtree', 'lambda': 0.00010681125199669714, 'alpha': 0.10533334318836919, 'max_depth': 5, 'eta': 0.00022743181397541037, 'gamma': 0.006343497885134726, 'grow_policy': 'lossguide'}. Best is trial 2 with value: 0.8881118881118881.
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+Trial 3 finished with value: 0.9370629370629371 and parameters: {'booster': 'gbtree', 'lambda': 5.12032238239309e-07, 'alpha': 0.15297648242504053, 'max_depth': 4, 'eta': 0.023643552787888444, 'gamma': 0.11913671792798909, 'grow_policy': 'lossguide'}. Best is trial 2 with value: 0.8881118881118881.
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+Trial 4 finished with value: 0.9370629370629371 and parameters: {'booster': 'gbtree', 'lambda': 3.469078057074252e-06, 'alpha': 4.856923168769435e-05, 'max_depth': 8, 'eta': 0.02305752254596483, 'gamma': 1.5162729034732894e-07, 'grow_policy': 'depthwise'}. Best is trial 2 with value: 0.8881118881118881.
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+Trial 5 pruned. Trial was pruned at iteration 0.
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+Trial 6 finished with value: 0.8601398601398601 and parameters: {'booster': 'gblinear', 'lambda': 0.7201546815554701, 'alpha': 1.1446036118427971e-05}. Best is trial 6 with value: 0.8601398601398601.
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+Trial 7 pruned. Trial was pruned at iteration 0.
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+Trial 8 pruned. Trial was pruned at iteration 0.
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+Trial 9 pruned. Trial was pruned at iteration 0.
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+A new study created in RDB with name: no-name-c8344a3e-1cd2-4c42-b2fc-bb6f14bbabe2
+Trial 0 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9883577946492929}. Best is trial 0 with value: 0.9736842105263158.
+Trial 1 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.4286477447123995}. Best is trial 0 with value: 0.9736842105263158.
+Trial 2 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7889404984450542}. Best is trial 0 with value: 0.9736842105263158.
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+sklearn.model_selection.train_test_split: running accelerated version on CPU
+A new study created in RDB with name: no-name-291d1365-9cc6-4966-ab4c-35127303b451
+Trial 0 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.49375081939848353}. Best is trial 0 with value: 0.5789473684210527.
+Trial 1 finished with value: 0.868421052631579 and parameters: {'momentum': 0.925230579755062}. Best is trial 1 with value: 0.868421052631579.
+Trial 2 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.038573607068852156}. Best is trial 1 with value: 0.868421052631579.
+Trial 3 finished with value: 0.5526315789473685 and parameters: {'momentum': 0.3811023910622675}. Best is trial 1 with value: 0.868421052631579.
+Trial 4 finished with value: 0.39473684210526316 and parameters: {'momentum': 0.3067986499189541}. Best is trial 1 with value: 0.868421052631579.
+Trial 5 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+al 5 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+ trial 1 with value: 0.868421052631579.
+Trial 4 finished with value: 0.39473684210526316 and parameters: {'momentum': 0.3067986499189541}. Best is trial 1 with value: 0.868421052631579.
+Trial 5 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+d parameters: {'momentum': 0.038573607068852156}. Best is trial 1 with value: 0.868421052631579.
+Trial 3 finished with value: 0.5526315789473685 and parameters: {'momentum': 0.3811023910622675}. Best is trial 1 with value: 0.868421052631579.
+Trial 4 finished with value: 0.39473684210526316 and parameters: {'momentum': 0.3067986499189541}. Best is trial 1 with value: 0.868421052631579.
+Trial 5 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+h value: 0.868421052631579.
+Trial 5 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+3}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+g accelerated version on CPU
+A new study created in RDB with name: no-name-291d1365-9cc6-4966-ab4c-35127303b451
+Trial 0 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.49375081939848353}. Best is trial 0 with value: 0.5789473684210527.
+Trial 1 finished with value: 0.868421052631579 and parameters: {'momentum': 0.925230579755062}. Best is trial 1 with value: 0.868421052631579.
+Trial 2 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.038573607068852156}. Best is trial 1 with value: 0.868421052631579.
+Trial 3 finished with value: 0.5526315789473685 and parameters: {'momentum': 0.3811023910622675}. Best is trial 1 with value: 0.868421052631579.
+Trial 4 finished with value: 0.39473684210526316 and parameters: {'momentum': 0.3067986499189541}. Best is trial 1 with value: 0.868421052631579.
+Trial 5 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+353}. Best is trial 0 with value: 0.5789473684210527.
+Trial 1 finished with value: 0.868421052631579 and parameters: {'momentum': 0.925230579755062}. Best is trial 1 with value: 0.868421052631579.
+Trial 2 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.038573607068852156}. Best is trial 1 with value: 0.868421052631579.
+Trial 3 finished with value: 0.5526315789473685 and parameters: {'momentum': 0.3811023910622675}. Best is trial 1 with value: 0.868421052631579.
+Trial 4 finished with value: 0.39473684210526316 and parameters: {'momentum': 0.3067986499189541}. Best is trial 1 with value: 0.868421052631579.
+Trial 5 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+hed with value: 0.5526315789473685 and parameters: {'momentum': 0.3811023910622675}. Best is trial 1 with value: 0.868421052631579.
+Trial 4 finished with value: 0.39473684210526316 and parameters: {'momentum': 0.3067986499189541}. Best is trial 1 with value: 0.868421052631579.
+Trial 5 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+d with value: 0.5789473684210527 and parameters: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+84210526316 and parameters: {'momentum': 0.3067986499189541}. Best is trial 1 with value: 0.868421052631579.
+Trial 5 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+9.
+Trial 5 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+s: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+8852156}. Best is trial 1 with value: 0.868421052631579.
+Trial 3 finished with value: 0.5526315789473685 and parameters: {'momentum': 0.3811023910622675}. Best is trial 1 with value: 0.868421052631579.
+Trial 4 finished with value: 0.39473684210526316 and parameters: {'momentum': 0.3067986499189541}. Best is trial 1 with value: 0.868421052631579.
+Trial 5 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+omentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+omentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+omentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+alue: 0.868421052631579.
+Trial 3 finished with value: 0.5526315789473685 and parameters: {'momentum': 0.3811023910622675}. Best is trial 1 with value: 0.868421052631579.
+Trial 4 finished with value: 0.39473684210526316 and parameters: {'momentum': 0.3067986499189541}. Best is trial 1 with value: 0.868421052631579.
+Trial 5 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
+ parameters: {'momentum': 0.038573607068852156}. Best is trial 1 with value: 0.868421052631579.
+Trial 3 finished with value: 0.5526315789473685 and parameters: {'momentum': 0.3811023910622675}. Best is trial 1 with value: 0.868421052631579.
+Trial 4 finished with value: 0.39473684210526316 and parameters: {'momentum': 0.3067986499189541}. Best is trial 1 with value: 0.868421052631579.
+Trial 5 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.5027304944198423}. Best is trial 1 with value: 0.868421052631579.
+Trial 6 finished with value: 0.5 and parameters: {'momentum': 0.35407528476620276}. Best is trial 1 with value: 0.868421052631579.
+Trial 7 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7845717468291608}. Best is trial 1 with value: 0.868421052631579.
+Trial 8 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11950547138775147}. Best is trial 1 with value: 0.868421052631579.
+Trial 9 finished with value: 0.23684210526315788 and parameters: {'momentum': 0.11064609416531002}. Best is trial 1 with value: 0.868421052631579.
+Trial 10 finished with value: 0.8947368421052632 and parameters: {'momentum': 0.9345689933872496}. Best is trial 10 with value: 0.8947368421052632.
+Trial 11 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9668857072541637}. Best is trial 11 with value: 0.9473684210526315.
+Trial 12 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9866805172498223}. Best is trial 12 with value: 0.9736842105263158.
+Trial 13 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7512445222870912}. Best is trial 12 with value: 0.9736842105263158.
+Trial 14 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7579903663952012}. Best is trial 12 with value: 0.9736842105263158.
+Trial 15 finished with value: 0.9473684210526315 and parameters: {'momentum': 0.9599449532382308}. Best is trial 12 with value: 0.9736842105263158.
+Trial 16 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6406057467785957}. Best is trial 12 with value: 0.9736842105263158.
+Trial 17 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8465535973043425}. Best is trial 12 with value: 0.9736842105263158.
+Trial 18 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9975536620250329}. Best is trial 12 with value: 0.9736842105263158.
+Trial 19 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6342331714736982}. Best is trial 12 with value: 0.9736842105263158.
+Trial 20 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.6245382660245355}. Best is trial 12 with value: 0.9736842105263158.
+Trial 21 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9910833366471181}. Best is trial 12 with value: 0.9736842105263158.
+Trial 22 finished with value: 0.6842105263157895 and parameters: {'momentum': 0.8511989216863185}. Best is trial 12 with value: 0.9736842105263158.
+Trial 23 finished with value: 0.7105263157894737 and parameters: {'momentum': 0.8651430221657904}. Best is trial 12 with value: 0.9736842105263158.
+Trial 24 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9861195378303332}. Best is trial 12 with value: 0.9736842105263158.
+Trial 25 finished with value: 0.5789473684210527 and parameters: {'momentum': 0.7038643885831284}. Best is trial 12 with value: 0.9736842105263158.
+Trial 26 finished with value: 0.7631578947368421 and parameters: {'momentum': 0.8839270551219995}. Best is trial 12 with value: 0.9736842105263158.
+Trial 27 finished with value: 0.9736842105263158 and parameters: {'momentum': 0.9887545050398467}. Best is trial 27 with value: 0.9736842105263158.
+Trial 28 finished with value: 0.6052631578947368 and parameters: {'momentum': 0.8104918434458502}. Best is trial 27 with value: 0.9736842105263158.
+Trial 29 finished with value: 0.7894736842105263 and parameters: {'momentum': 0.8966504740666983}. Best is trial 27 with value: 0.9736842105263158.
