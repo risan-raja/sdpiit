@@ -11,9 +11,15 @@
     "jupyter.generateSVGPlots": true,
     "python.analysis.completeFunctionParens": true,
     "python.analysis.diagnosticMode": "openFilesOnly",
-    "python.analysis.inlayHints.functionReturnTypes": true,
-    "python.analysis.inlayHints.variableTypes": true,
+    "python.analysis.inlayHints.functionReturnTypes": false,
+    "python.analysis.inlayHints.variableTypes": false,
     "editor.insertSpaces": true,
-    "python.formatting.provider": "black",
-    "editor.wordWrapColumn": 150
+    "python.formatting.provider": "autopep8",
+    "editor.wordWrapColumn": 150,
+    "python.testing.pytestArgs": [
+        "notebooks"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": false,
+    "python.terminal.activateEnvInCurrentTerminal": true
 }
