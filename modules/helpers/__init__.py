@@ -16,5 +16,5 @@ __all__ = [
     "PprintTable",
     "plot_mean_std_max",
     "OneVsRestClassifier",
-    "OneVsOneClassifier"
+    "OneVsOneClassifier",
 ]

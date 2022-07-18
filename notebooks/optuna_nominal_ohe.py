@@ -34,9 +34,7 @@ run = neptune.init(
     mode="async",
 )  # your credentials
 
-run_params = {"direction": ["maximize", "minimize"],
-              "n_trials": 10,
-              "n_layers": 4}
+run_params = {"direction": ["maximize", "minimize"], "n_trials": 10, "n_layers": 4}
 run["parameters"] = run_params
 
 
@@ -91,11 +89,17 @@ def convert_to_dfs(X_train, X_test, y_train, y_test, encoder):
     y_test = pd.DataFrame(y_test, columns=["target"])
     return X_train, X_test, y_train, y_test
 
-def load_data(ohe_nominal_data, target, encoder = encoder, as_frame=True):
-    X_train, X_test, y_train, y_test = train_test_split(ohe_nominal_data, target, stratify=target, test_size=0.2)
+
+def load_data(ohe_nominal_data, target, encoder=encoder, as_frame=True):
+    X_train, X_test, y_train, y_test = train_test_split(
+        ohe_nominal_data, target, stratify=target, test_size=0.2
+    )
     if as_frame:
-        X_train, X_test, y_train, y_test = convert_to_dfs(X_train, X_test, y_train, y_test, encoder=encoder)
+        X_train, X_test, y_train, y_test = convert_to_dfs(
+            X_train, X_test, y_train, y_test, encoder=encoder
+        )
     return X_train, X_test, y_train, y_test
+
 
 # X_train, X_test, y_train, y_test  = load_data(ohe_nominal_data, target)
 
@@ -117,9 +121,7 @@ def objective(trial: optuna.trial.Trial):
     tuple_layers = tuple(layers)
 
     model_params = {
-        "activation": trial.suggest_categorical(
-            "activation", ["tanh", "relu"]
-        ),
+        "activation": trial.suggest_categorical("activation", ["tanh", "relu"]),
         "alpha": trial.suggest_float("alpha", 1e-04, 1e-03),
         "beta_1": trial.suggest_float("beta_1", 0.77, 1),
         "beta_2": trial.suggest_float("beta_2", 0.5, 1),
@@ -137,7 +139,7 @@ def objective(trial: optuna.trial.Trial):
         "power_t": trial.suggest_float("power_t", 0.2, 0.8, step=0.01),
         "random_state": 42,
         "shuffle": True,
-        "solver": 'adam',
+        "solver": "adam",
         "validation_fraction": 0.1,
         "tol": 0.00001,
         "verbose": False,
@@ -150,8 +152,9 @@ def objective(trial: optuna.trial.Trial):
         "ovo": OneVsOneClassifier(model, n_jobs=-1),
         "ovr": OneVsRestClassifier(model, n_jobs=-1),
     }
-    mclass_model = m_class_methods[trial.suggest_categorical(
-        "m_class_method", ["ovo", "ovr"])]  # type: ignore  # type: ignore
+    mclass_model = m_class_methods[
+        trial.suggest_categorical("m_class_method", ["ovo", "ovr"])
+    ]  # type: ignore  # type: ignore
     trial.set_user_attr("DATASET", "One Hot Encoded Nominal Data")
     trial.set_user_attr("Model", "MLPClassifier (adam)")
     with parallel_backend("loky"):
@@ -159,29 +162,31 @@ def objective(trial: optuna.trial.Trial):
     y_pred_test = mclass_model.predict(X_test)
     y_pred_train = mclass_model.predict(X_train)
     metric1 = f1_score(y_test, y_pred_test, average="macro", labels=[0, 1, 2])
-    metric2 = f1_score(y_train, y_pred_train,
-                       average="macro", labels=[0, 1, 2])
+    metric2 = f1_score(y_train, y_pred_train, average="macro", labels=[0, 1, 2])
 
-    def log_model_params_by_trial(trial: optuna.trial.Trial,
-                                  mclass_model: sklearn.multiclass.OneVsOneClassifier):
+    def log_model_params_by_trial(
+        trial: optuna.trial.Trial, mclass_model: sklearn.multiclass.OneVsOneClassifier
+    ):
         # run["trial_id"]
         models = mclass_model.estimators_
-        trial_info = {"trial_id": trial.number,
-                      "model_name": models[0].__class__.__name__
-                      }
+        trial_info = {
+            "trial_id": trial.number,
+            "model_name": models[0].__class__.__name__,
+        }
         for k, v in models[0].get_params().items():
-            trial_info['mlp__'+k] = v
+            trial_info["mlp__" + k] = v
         return trial_info
 
-    trial_params = log_model_params_by_trial(trial=trial,
-                                             mclass_model=mclass_model)
-    run['trial_params'] = trial_params
-    run['test__f1_macro'] = metric1
+    trial_params = log_model_params_by_trial(trial=trial, mclass_model=mclass_model)
+    run["trial_params"] = trial_params
+    run["test__f1_macro"] = metric1
 
     return metric1, metric2 - metric1
 
 
-def main(params=run_params,):
+def main(
+    params=run_params,
+):
     global run
     neptune_callback = optuna_utils.NeptuneCallback(run)
     study = optuna.create_study(
@@ -198,7 +203,7 @@ def main(params=run_params,):
             gc_after_trial=True,
             n_jobs=1,
             n_trials=params["n_trials"],
-            callbacks=[neptune_callback]
+            callbacks=[neptune_callback],
         )
 
 
