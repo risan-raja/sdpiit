@@ -100,18 +100,18 @@ run_params = {"directions": "maximize", "n_trials": 5}
 run = neptune.init(
     project="mlop3n/SDP",
     api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI1MzU4OTQ1Ni02ZDMzLTRhNjAtOTFiMC04MjQ5ZDY4MjJjMjAifQ==",
-    custom_run_id="XGB.4",
+    custom_run_id="XGB.5G",
     mode="offline",
 )  # your credentials
-run2 = neptune.init(
-    project="mlop3n/SDP",
-    api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI1MzU4OTQ1Ni02ZDMzLTRhNjAtOTFiMC04MjQ5ZDY4MjJjMjAifQ==",
-    custom_run_id="XGB.5",
-    mode="offline",
-)  # your credentials
+# run2 = neptune.init(
+#     project="mlop3n/SDP",
+#     api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI1MzU4OTQ1Ni02ZDMzLTRhNjAtOTFiMC04MjQ5ZDY4MjJjMjAifQ==",
+#     custom_run_id="XGB.5M",
+#     mode="offline",
+# )  # your credentials
 
 
-neptune_callback = neptxgb(run=run, log_tree=[0, 1, 2, 3])
+neptune_xgb = neptxgb(run=run, log_tree=[0, 1, 2, 3])
 
 
 def allow_stopping(func):
@@ -173,6 +173,7 @@ def objective(trial: optuna.trial.Trial, data=XGBOOST_OPT_TRIAL_DATA):
         "tree_method": trial.suggest_categorical(
             "tree_method", ["exact", "approx", "hist"]
         ),
+        # "updater": trial.suggest_categorical("updater",['grow_colmaker', 'grow_histmaker', 'grow_local_histmaker', 'grow_quantile_histmaker']),
         # defines booster, gblinear for linear functions.
         "booster": trial.suggest_categorical("booster", ["gbtree", "dart"]),
         # L2 regularization weight.
@@ -180,7 +181,8 @@ def objective(trial: optuna.trial.Trial, data=XGBOOST_OPT_TRIAL_DATA):
         # L1 regularization weight.
         "alpha": trial.suggest_float("alpha", 1e-8, 1.0, log=True),
         # sampling ratio for training data.
-        "subsample": trial.suggest_float("subsample", 0.2, 1.0),
+        "subsample": trial.suggest_float("subsample", 0.5, 1.0),
+        "sampling_method": "uniform",
         # sampling according to each tree.
         "colsample_bytree": trial.suggest_float("colsample_bytree", 0.2, 1.0),
         "colsample_bylevel": trial.suggest_float("colsample_bylevel", 0.2, 1.0),
@@ -221,6 +223,7 @@ def objective(trial: optuna.trial.Trial, data=XGBOOST_OPT_TRIAL_DATA):
         num_boost_round=999,
         evals=[(dvalid, "validation")],
         callbacks=[
+            # neptune_xgb,
             pruning_callback,
             xgboost.callback.LearningRateScheduler(gen_learning_rate),
             xgboost.callback.EarlyStopping(
@@ -251,11 +254,11 @@ def main(
     global run
     neptune_callback = optuna_utils.NeptuneCallback(run)
     study = optuna.create_study(
-        study_name="XGB.4",
+        study_name="XGB.9",
         sampler=optuna.samplers.TPESampler(
             warn_independent_sampling=False,
         ),
-        pruner=optuna.pruners.SuccessiveHalvingPruner(min_resource="auto"),
+        pruner=optuna.pruners.MedianPruner(n_warmup_steps=5), 
         storage=OPTUNA_DB,
         direction=params["directions"],
         load_if_exists=True,
@@ -265,12 +268,12 @@ def main(
             objective,
             show_progress_bar=True,
             gc_after_trial=True,
-            n_jobs=-1,
+            n_jobs=2,
             n_trials=params["n_trials"],
             callbacks=[neptune_callback],
         )
 
-
+# updater_types = ['grow_colmaker', 'grow_histmaker', 'grow_local_histmaker', 'grow_quantile_histmaker','grow_gpu_hist', 'sync', 'refresh', 'prune']
 if __name__ == "__main__":
     main()
     # pass
