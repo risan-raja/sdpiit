@@ -268,7 +268,7 @@ def main(
             objective,
             show_progress_bar=True,
             gc_after_trial=True,
-            n_jobs=2,
+            n_jobs=-1,
             n_trials=params["n_trials"],
             callbacks=[neptune_callback],
         )
