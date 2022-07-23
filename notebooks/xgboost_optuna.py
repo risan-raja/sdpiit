@@ -96,7 +96,7 @@ from REDIS_CONFIG import REDIS_URL
 os.environ["NEPTUNE_PROJECT"] = "mlop3n/SDP"
 CACHE_DIR = Memory(location="../data/joblib_memory/")
 OPTUNA_DB = REDIS_URL
-run_params = {"directions": "maximize", "n_trials": 5}
+run_params = {"directions": "maximize", "n_trials": 50}
 # run = neptune.init(
 #     project="mlop3n/SDP",
 #     api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI1MzU4OTQ1Ni02ZDMzLTRhNjAtOTFiMC04MjQ5ZDY4MjJjMjAifQ==",
