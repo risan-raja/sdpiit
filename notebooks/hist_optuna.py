@@ -52,7 +52,7 @@ target = final_data_ohe.target
 X_train, X_test, y_train, y_test = train_test(final_data_ohe.drop(['target'],axis=1), target, test_size=0.2)
 
 def objective(trial:optuna.trial.Trial):
-    categories = [True]*138
+    categories = [True]*130
     e_stop = {'TRUE': True, "FALSE":False}
     hist_params = {'categorical_features': categories,
                  'early_stopping': e_stop[trial.suggest_categorical("early_stopping",["TRUE","FALSE"])],
@@ -84,7 +84,7 @@ def objective(trial:optuna.trial.Trial):
 
 # objective()
 study = optuna.create_study(
-        study_name="Hist.22",
+        study_name="Hist.Beta",
         sampler=optuna.samplers.TPESampler(
             warn_independent_sampling=False,
         ),
