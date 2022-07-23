@@ -52,7 +52,7 @@ target = final_data_ohe.target
 X_train, X_test, y_train, y_test = train_test(final_data_ohe.drop(['target'],axis=1), target, test_size=0.2)
 
 def objective(trial:optuna.trial.Trial):
-    categories = [True]*130
+    categories = [True]*138
     e_stop = {'TRUE': True, "FALSE":False}
     hist_params = {'categorical_features': categories,
                  'early_stopping': e_stop[trial.suggest_categorical("early_stopping",["TRUE","FALSE"])],
@@ -72,7 +72,7 @@ def objective(trial:optuna.trial.Trial):
                      'validation_fraction': trial.suggest_float("validation_fraction", 0.1, 0.3),
                      'verbose': 0,
                      'warm_start': False}
-    c_select = make_column_selector(pattern='one_hot_enc*|ordinal*')
+    c_select = make_column_selector(pattern='one_hot_enc*|ordinal*|nominal*')
     clf = HistGradientBoostingClassifier(**hist_params)
     ct = make_column_transformer((('passthrough',c_select)),sparse_threshold=0)
     wf = make_pipeline(ct,clf)
@@ -84,7 +84,7 @@ def objective(trial:optuna.trial.Trial):
 
 # objective()
 study = optuna.create_study(
-        study_name="Hist.Beta",
+        study_name="Hist.Beta.3.3.3",
         sampler=optuna.samplers.TPESampler(
             warn_independent_sampling=False,
         ),
@@ -92,12 +92,11 @@ study = optuna.create_study(
         direction="maximize",
         load_if_exists=True,
     )
-# with parallel_backend("threading"):
-study.optimize(
-    objective,
-    show_progress_bar=True,
-    gc_after_trial=True,
-    # n_jobs=2,
-    n_trials=50,
-)
+with parallel_backend("threading"):
+    study.optimize(
+        objective,
+        gc_after_trial=True,
+        n_jobs=2,
+        n_trials=50,
+    )
 
