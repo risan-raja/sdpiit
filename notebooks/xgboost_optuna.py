@@ -210,8 +210,8 @@ def objective(trial: optuna.trial.Trial, data=XGBOOST_OPT_TRIAL_DATA):
     f1_score_test = sklearn.metrics.f1_score(valid_y, ypred, average="macro")
     f1_score_train = sklearn.metrics.f1_score(train_y, ypred2, average="macro")
     # return f1_score_test, f1_score_train-f1_score_test
-    run["f1_score_test"] = f1_score_test
-    run["overfitting"] = f1_score_train - f1_score_test
+    #  run["f1_score_test"] = f1_score_test
+    #  run["overfitting"] = f1_score_train - f1_score_test
     return f1_score_test
 
 
