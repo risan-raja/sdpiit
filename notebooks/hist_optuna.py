@@ -98,6 +98,6 @@ study.optimize(
     show_progress_bar=True,
     gc_after_trial=True,
     # n_jobs=2,
-    n_trials=5,
+    n_trials=50,
 )
 
