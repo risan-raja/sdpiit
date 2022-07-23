@@ -154,7 +154,7 @@ def objective(trial: optuna.trial.Trial, data=XGBOOST_OPT_TRIAL_DATA):
         "colsample_bytree": trial.suggest_float("colsample_bytree", 0.2, 1.0),
         "colsample_bylevel": trial.suggest_float("colsample_bylevel", 0.2, 1.0),
         "colsample_bynode": trial.suggest_float("colsample_bynode", 0.2, 1.0),
-        "num_parallel_tree": trial.suggest_int("num_parallel_tree", 1, 10),
+        #  "num_parallel_tree": trial.suggest_int("num_parallel_tree", 1, 10),
     }
     if param["tree_method"] != "exact":
         param["max_bin"] = trial.suggest_int("max_bin", 256, 4096)
@@ -219,7 +219,7 @@ def main(params=run_params):
     global run
 #     neptune_callback = optuna_utils.NeptuneCallback(run)
     study = optuna.create_study(
-        study_name="XGB.Beta",
+        study_name="XGB.Beta.1",
         sampler=optuna.samplers.TPESampler(
             warn_independent_sampling=False,
         ),
