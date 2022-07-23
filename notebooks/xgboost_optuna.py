@@ -1,4 +1,4 @@
-from pymongo import MongoClient
+# from pymongo import MongoClient
 import optuna
 import os
 
@@ -57,7 +57,7 @@ import sklearnex, daal4py
 import neptune.new.integrations.optuna as optuna_utils
 from tqdm import tqdm, trange
 from xgboost import XGBClassifier, XGBRFClassifier
-from BorutaShap import BorutaShap
+# from BorutaShap import BorutaShap
 import xgboost as xgb
 import xgboost
 from sklearn.calibration import *
@@ -268,7 +268,7 @@ def main(
             objective,
             show_progress_bar=True,
             gc_after_trial=True,
-            n_jobs=2,
+            n_jobs=-1,
             n_trials=params["n_trials"],
             callbacks=[neptune_callback],
         )
