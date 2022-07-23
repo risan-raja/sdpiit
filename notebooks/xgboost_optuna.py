@@ -127,6 +127,7 @@ def objective(trial: optuna.trial.Trial, data=XGBOOST_OPT_TRIAL_DATA):
         "objective": "multi:softmax",
         "num_class": 3,
         'nthreads':24,
+        'seed':34,
         # use exact for small dataset.
         "tree_method": trial.suggest_categorical(
             "tree_method", ["exact", "approx", "hist"]
