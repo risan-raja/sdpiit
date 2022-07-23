@@ -54,12 +54,14 @@ from sklearn.dummy import *
 from sklearn.semi_supervised import *
 from sklearn.discriminant_analysis import *
 import sklearnex, daal4py
-
+import neptune.new.integrations.optuna as optuna_utils
 from tqdm import tqdm, trange
 from xgboost import XGBClassifier, XGBRFClassifier
 from BorutaShap import BorutaShap
-
+import xgboost as xgb
+import xgboost
 from sklearn.calibration import *
+from neptune.new.integrations.xgboost import NeptuneCallback as neptxgb
 
 pd.options.plotting.backend = "plotly"
 pd.options.display.max_columns = 50
@@ -67,7 +69,7 @@ set_config(display="diagram")
 warnings.filterwarnings("ignore")
 import pickle
 from collections import defaultdict
-
+import neptune.new as neptune
 import matplotlib.pyplot as plt
 import seaborn as sns
 from joblib import parallel_backend
@@ -84,20 +86,32 @@ from helpers import DFCollection
 from helpers import plot_mean_std_max
 from helpers import CustomMetrics
 import gc
+import joblib
 
-%matplotlib inline
+# %matplotlib inline
 CACHE_DIR = Memory(location="../data/joblib_memory/")
 # OPTUNA_DB = "postgresql+psycopg2://postgres:302492@localhost:5433/optuna"
 from REDIS_CONFIG import REDIS_URL
+
 os.environ["NEPTUNE_PROJECT"] = "mlop3n/SDP"
 CACHE_DIR = Memory(location="../data/joblib_memory/")
-OPTUN_DB = REDIS_URL
-run_params = {"directions": ["maximize","minimize"], "n_trials": 10}
+OPTUNA_DB = REDIS_URL
+run_params = {"directions": "maximize", "n_trials": 5}
 run = neptune.init(
     project="mlop3n/SDP",
-    custom_run_id="XGBRF",
-    mode="async",
+    api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI1MzU4OTQ1Ni02ZDMzLTRhNjAtOTFiMC04MjQ5ZDY4MjJjMjAifQ==",
+    custom_run_id="XGB.4",
+    mode="offline",
 )  # your credentials
+run2 = neptune.init(
+    project="mlop3n/SDP",
+    api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI1MzU4OTQ1Ni02ZDMzLTRhNjAtOTFiMC04MjQ5ZDY4MjJjMjAifQ==",
+    custom_run_id="XGB.5",
+    mode="offline",
+)  # your credentials
+
+
+neptune_callback = neptxgb(run=run, log_tree=[0, 1, 2, 3])
 
 
 def allow_stopping(func):
@@ -111,6 +125,7 @@ def allow_stopping(func):
         gc.collect()
 
     return wrapper
+
 
 db = DFCollection()
 column_selector = ColumnSelectors()
@@ -136,33 +151,98 @@ ordinal_categories = db.ordinal_categories
 class_labels, n_classes, class_priors = class_distribution(
     final_data.target.to_numpy().reshape(-1, 1)
 )
+XGBOOST_OPT_TRIAL_DATA = joblib.load("../data/xgboost_optuna_trial_data/data.pkl")
 
-def objective(trial):
-    data, target = sklearn.datasets.load_breast_cancer(return_X_y=True)
-    train_x, valid_x, train_y, valid_y = train_test_split(data, target, test_size=0.25)
+
+def objective(trial: optuna.trial.Trial, data=XGBOOST_OPT_TRIAL_DATA):
+    # X_train, X_test, y_train, y_test = XGBOOST_OPT_TRIAL_DATA
+    # data, target = sklearn.datasets.load_breast_cancer(return_X_y=True)
+    train_x, valid_x, train_y, valid_y = XGBOOST_OPT_TRIAL_DATA
     dtrain = xgb.DMatrix(train_x, label=train_y)
     dvalid = xgb.DMatrix(valid_x, label=valid_y)
 
+    def gen_learning_rate(epoch):
+        # assert type(epoch) == 'int'
+        return trial.suggest_float("learning_rate", 0, 1)
+
     param = {
         "verbosity": 0,
-        "objective": "binary:logistic",
-        "eval_metric": "auc",
-        "booster": trial.suggest_categorical("booster", ["gbtree", "gblinear", "dart"]),
+        "objective": "multi:softmax",
+        "num_class": 3,
+        # use exact for small dataset.
+        "tree_method": trial.suggest_categorical(
+            "tree_method", ["exact", "approx", "hist"]
+        ),
+        # defines booster, gblinear for linear functions.
+        "booster": trial.suggest_categorical("booster", ["gbtree", "dart"]),
+        # L2 regularization weight.
         "lambda": trial.suggest_float("lambda", 1e-8, 1.0, log=True),
+        # L1 regularization weight.
         "alpha": trial.suggest_float("alpha", 1e-8, 1.0, log=True),
+        # sampling ratio for training data.
+        "subsample": trial.suggest_float("subsample", 0.2, 1.0),
+        # sampling according to each tree.
+        "colsample_bytree": trial.suggest_float("colsample_bytree", 0.2, 1.0),
+        "colsample_bylevel": trial.suggest_float("colsample_bylevel", 0.2, 1.0),
+        "colsample_bynode": trial.suggest_float("colsample_bynode", 0.2, 1.0),
+        "num_parallel_tree": trial.suggest_int("num_parallel_tree", 1, 10),
     }
+    if param["tree_method"] != "exact":
+        param["max_bin"] = trial.suggest_int("max_bin", 256, 4096)
 
-    if param["booster"] == "gbtree" or param["booster"] == "dart":
-        param["max_depth"] = trial.suggest_int("max_depth", 1, 9)
-        param["eta"] = trial.suggest_float("eta", 1e-8, 1.0, log=True)
+    if param["booster"] in ["gbtree", "dart"]:
+        # maximum depth of the tree, signifies complexity of the tree.
+        param["max_depth"] = trial.suggest_int("max_depth", 3, 9, step=2)
+        # minimum child weight, larger the term more conservative the tree.
+        param["min_child_weight"] = trial.suggest_int("min_child_weight", 2, 10)
+        # param["eta"] = trial.suggest_float("eta", 1e-8, 1.0, log=True)
+        # defines how selective algorithm is.
         param["gamma"] = trial.suggest_float("gamma", 1e-8, 1.0, log=True)
-        param["grow_policy"] = trial.suggest_categorical("grow_policy", ["depthwise", "lossguide"])
+        param["grow_policy"] = trial.suggest_categorical(
+            "grow_policy", ["depthwise", "lossguide"]
+        )
+
     if param["booster"] == "dart":
-        param["sample_type"] = trial.suggest_categorical("sample_type", ["uniform", "weighted"])
-        param["normalize_type"] = trial.suggest_categorical("normalize_type", ["tree", "forest"])
+        param["sample_type"] = trial.suggest_categorical(
+            "sample_type", ["uniform", "weighted"]
+        )
+        param["normalize_type"] = trial.suggest_categorical(
+            "normalize_type", ["tree", "forest"]
+        )
         param["rate_drop"] = trial.suggest_float("rate_drop", 1e-8, 1.0, log=True)
         param["skip_drop"] = trial.suggest_float("skip_drop", 1e-8, 1.0, log=True)
 
+    pruning_callback = optuna.integration.XGBoostPruningCallback(
+        trial, "validation-mlogloss"
+    )
+    bst = xgb.train(
+        param,
+        dtrain,
+        num_boost_round=999,
+        evals=[(dvalid, "validation")],
+        callbacks=[
+            pruning_callback,
+            xgboost.callback.LearningRateScheduler(gen_learning_rate),
+            xgboost.callback.EarlyStopping(
+                rounds=5,
+                min_delta=1e-5,
+                save_best=True,
+                maximize=False,
+                data_name="validation",
+                metric_name="mlogloss",
+            ),
+        ],
+    )
+    # preds = bst.predict(dvalid)
+    # pred_labels = np.rint(preds)
+    ypred = bst.predict(dvalid, iteration_range=(0, bst.best_iteration + 1))
+    ypred2 = bst.predict(dtrain, iteration_range=(0, bst.best_iteration + 1))
+    f1_score_test = sklearn.metrics.f1_score(valid_y, ypred, average="macro")
+    f1_score_train = sklearn.metrics.f1_score(train_y, ypred2, average="macro")
+    # return f1_score_test, f1_score_train-f1_score_test
+    run["f1_score_test"] = f1_score_test
+    run["overfitting"] = f1_score_train - f1_score_test
+    return f1_score_test
 
 
 def main(
@@ -171,21 +251,26 @@ def main(
     global run
     neptune_callback = optuna_utils.NeptuneCallback(run)
     study = optuna.create_study(
-        study_name="XGBRF",
-        sampler=optuna.samplers.TPESampler(multivariate=True, group=True),
+        study_name="XGB.4",
+        sampler=optuna.samplers.TPESampler(
+            warn_independent_sampling=False,
+        ),
+        pruner=optuna.pruners.SuccessiveHalvingPruner(min_resource="auto"),
         storage=OPTUNA_DB,
-        directions=params["directions"],
+        direction=params["directions"],
         load_if_exists=True,
     )
-    with parallel_backend("threading"):
+    with parallel_backend("loky"):
         study.optimize(
             objective,
             show_progress_bar=True,
             gc_after_trial=True,
-            n_jobs=1,
+            n_jobs=-1,
             n_trials=params["n_trials"],
             callbacks=[neptune_callback],
         )
 
+
 if __name__ == "__main__":
     main()
+    # pass

@@ -31,7 +31,7 @@ wheel/*
 /.mypy_cache/*
 .venv/*
 */__*/
-
+notebooks/.neptune/*
 wheel.tar.xz
 notebooks/print_table/.ipynb_checkpoints/Tablify-checkpoint.py
 notebooks/print_table/.ipynb_checkpoints/__init__-checkpoint.py
