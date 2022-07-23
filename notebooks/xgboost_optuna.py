@@ -96,7 +96,7 @@ from REDIS_CONFIG import REDIS_URL
 os.environ["NEPTUNE_PROJECT"] = "mlop3n/SDP"
 CACHE_DIR = Memory(location="../data/joblib_memory/")
 OPTUNA_DB = REDIS_URL
-run_params = {"directions": "maximize", "n_trials": 50}
+run_params = {"directions": "maximize", "n_trials": 500}
 # run = neptune.init(
 #     project="mlop3n/SDP",
 #     api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI1MzU4OTQ1Ni02ZDMzLTRhNjAtOTFiMC04MjQ5ZDY4MjJjMjAifQ==",
@@ -154,7 +154,7 @@ def objective(trial: optuna.trial.Trial, data=XGBOOST_OPT_TRIAL_DATA):
         "colsample_bytree": trial.suggest_float("colsample_bytree", 0.2, 1.0),
         "colsample_bylevel": trial.suggest_float("colsample_bylevel", 0.2, 1.0),
         "colsample_bynode": trial.suggest_float("colsample_bynode", 0.2, 1.0),
-        #  "num_parallel_tree": trial.suggest_int("num_parallel_tree", 1, 10),
+        "num_parallel_tree": trial.suggest_int("num_parallel_tree", 1, 1000),
     }
     if param["tree_method"] != "exact":
         param["max_bin"] = trial.suggest_int("max_bin", 256, 4096)
@@ -241,4 +241,4 @@ def main(params=run_params):
 # updater_types = ['grow_colmaker', 'grow_histmaker', 'grow_local_histmaker', 'grow_quantile_histmaker','grow_gpu_hist', 'sync', 'refresh', 'prune']
 if __name__ == "__main__":
     main()
-    # pass
+#     pass
