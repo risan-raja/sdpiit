@@ -12,7 +12,7 @@ class DFCollection:
     def __init__(self):
         self.c_sel = ColumnSelectors()
 
-        self.file_path = "/home/mlop3n/PycharmProjects/sdpiit/data/"
+        self.file_path = "../data/"
         self.data = pd.read_parquet(
             self.file_path + "train.parquet", engine="fastparquet"
         )
