@@ -127,30 +127,30 @@ def allow_stopping(func):
     return wrapper
 
 
-db = DFCollection()
-column_selector = ColumnSelectors()
-# classifiers = [f() for f in cls_names]
-dtype_info = column_selector.dtype_info
-ordinal = column_selector.ordinal_cols
-nominal = column_selector.nominal_cols
-binary = column_selector.binary_cols
-ratio = column_selector.ratio_cols
+# db = DFCollection()
+# column_selector = ColumnSelectors()
+# # classifiers = [f() for f in cls_names]
+# dtype_info = column_selector.dtype_info
+# ordinal = column_selector.ordinal_cols
+# nominal = column_selector.nominal_cols
+# binary = column_selector.binary_cols
+# ratio = column_selector.ratio_cols
 
 
-final_data = db.final_data
-final_pred_data = db.final_pred_data
-baseline_prediction_data = db.baseline_prediction_data
-data_logit = db.data_logits
-prediction_data = db.prediction_data
-master_data = db.master
-given_data = db.data
+# final_data = db.final_data
+# final_pred_data = db.final_pred_data
+# baseline_prediction_data = db.baseline_prediction_data
+# data_logit = db.data_logits
+# prediction_data = db.prediction_data
+# master_data = db.master
+# given_data = db.data
 
-ordinal_data, nominal_data, binary_data, ratio_data = db.categorise_data()
-nominal_categories = db.nominal_categories
-ordinal_categories = db.ordinal_categories
-class_labels, n_classes, class_priors = class_distribution(
-    final_data.target.to_numpy().reshape(-1, 1)
-)
+# ordinal_data, nominal_data, binary_data, ratio_data = db.categorise_data()
+# nominal_categories = db.nominal_categories
+# ordinal_categories = db.ordinal_categories
+# class_labels, n_classes, class_priors = class_distribution(
+#     final_data.target.to_numpy().reshape(-1, 1)
+# )
 XGBOOST_OPT_TRIAL_DATA = joblib.load("../data/xgboost_optuna_trial_data/data.pkl")
 
 
