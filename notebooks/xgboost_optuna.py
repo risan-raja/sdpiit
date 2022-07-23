@@ -61,7 +61,7 @@ from BorutaShap import BorutaShap
 import xgboost as xgb
 import xgboost
 from sklearn.calibration import *
-from neptune.new.integrations.xgboost import NeptuneCallback as neptxgb
+# from neptune.new.integrations.xgboost import NeptuneCallback as neptxgb
 
 pd.options.plotting.backend = "plotly"
 pd.options.display.max_columns = 50
