@@ -97,21 +97,12 @@ os.environ["NEPTUNE_PROJECT"] = "mlop3n/SDP"
 CACHE_DIR = Memory(location="../data/joblib_memory/")
 OPTUNA_DB = REDIS_URL
 run_params = {"directions": "maximize", "n_trials": 5}
-run = neptune.init(
-    project="mlop3n/SDP",
-    api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI1MzU4OTQ1Ni02ZDMzLTRhNjAtOTFiMC04MjQ5ZDY4MjJjMjAifQ==",
-    custom_run_id="XGB.Beta",
-    mode="offline",
-)  # your credentials
-# run2 = neptune.init(
+# run = neptune.init(
 #     project="mlop3n/SDP",
 #     api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI1MzU4OTQ1Ni02ZDMzLTRhNjAtOTFiMC04MjQ5ZDY4MjJjMjAifQ==",
-#     custom_run_id="XGB.5M",
+#     custom_run_id="XGB.Beta",
 #     mode="offline",
 # )  # your credentials
-
-
-# neptune_xgb = neptxgb(run=run, log_tree=[0, 1, 2, 3])
 
 
 def allow_stopping(func):
@@ -126,31 +117,6 @@ def allow_stopping(func):
 
     return wrapper
 
-
-# db = DFCollection()
-# column_selector = ColumnSelectors()
-# # classifiers = [f() for f in cls_names]
-# dtype_info = column_selector.dtype_info
-# ordinal = column_selector.ordinal_cols
-# nominal = column_selector.nominal_cols
-# binary = column_selector.binary_cols
-# ratio = column_selector.ratio_cols
-
-
-# final_data = db.final_data
-# final_pred_data = db.final_pred_data
-# baseline_prediction_data = db.baseline_prediction_data
-# data_logit = db.data_logits
-# prediction_data = db.prediction_data
-# master_data = db.master
-# given_data = db.data
-
-# ordinal_data, nominal_data, binary_data, ratio_data = db.categorise_data()
-# nominal_categories = db.nominal_categories
-# ordinal_categories = db.ordinal_categories
-# class_labels, n_classes, class_priors = class_distribution(
-#     final_data.target.to_numpy().reshape(-1, 1)
-# )
 XGBOOST_OPT_TRIAL_DATA = joblib.load("../data/xgboost_optuna_trial_data/data.pkl")
 
 
@@ -169,6 +135,7 @@ def objective(trial: optuna.trial.Trial, data=XGBOOST_OPT_TRIAL_DATA):
         "verbosity": 0,
         "objective": "multi:softmax",
         "num_class": 3,
+        'nthreads':-1,
         # use exact for small dataset.
         "tree_method": trial.suggest_categorical(
             "tree_method", ["exact", "approx", "hist"]
@@ -248,11 +215,9 @@ def objective(trial: optuna.trial.Trial, data=XGBOOST_OPT_TRIAL_DATA):
     return f1_score_test
 
 
-def main(
-    params=run_params,
-):
+def main(params=run_params):
     global run
-    neptune_callback = optuna_utils.NeptuneCallback(run)
+#     neptune_callback = optuna_utils.NeptuneCallback(run)
     study = optuna.create_study(
         study_name="XGB.Beta",
         sampler=optuna.samplers.TPESampler(
@@ -263,15 +228,15 @@ def main(
         direction=params["directions"],
         load_if_exists=True,
     )
-    with parallel_backend("loky"):
-        study.optimize(
-            objective,
-            show_progress_bar=True,
-            gc_after_trial=True,
-            n_jobs=-1,
-            n_trials=params["n_trials"],
-            callbacks=[neptune_callback],
-        )
+#     with parallel_backend("threading"):
+    study.optimize(
+        objective,
+        show_progress_bar=True,
+        gc_after_trial=True,
+        n_jobs=2,
+        n_trials=params["n_trials"],
+#         callbacks=[neptune_callback],
+    )
 
 # updater_types = ['grow_colmaker', 'grow_histmaker', 'grow_local_histmaker', 'grow_quantile_histmaker','grow_gpu_hist', 'sync', 'refresh', 'prune']
 if __name__ == "__main__":
