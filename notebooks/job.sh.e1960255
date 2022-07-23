@@ -1,0 +1,5 @@
+Intel(R) Extension for Scikit-learn* enabled (https://github.com/intel/scikit-learn-intelex)
+[32m[I 2022-07-23 03:36:10,101][0m Using an existing study with name 'XGB.Beta.1' instead of creating a new one.[0m
+  0%|          | 0/300 [00:00<?, ?it/s]                                         0%|          | 0/300 [07:58<?, ?it/s]  0%|          | 1/300 [07:58<39:46:44, 478.95s/it]                                                     0%|          | 1/300 [23:40<39:46:44, 478.95s/it]  1%|          | 2/300 [23:40<62:09:51, 750.98s/it]                                                     1%|          | 2/300 [41:31<62:09:51, 750.98s/it]  1%|          | 3/300 [41:31<74:01:12, 897.21s/it]/usr/sbin/kill-illegit-procs: line 86: kill: (3057552) - No such process
+/var/spool/torque/mom_priv/epilogue.d//100-resetpcie.epilogue: line 10: echo: write error: No such device
+/var/spool/torque/mom_priv/epilogue.d//100-resetpcie.epilogue: line 10: echo: write error: No such device

@@ -54,7 +54,6 @@ from sklearn.dummy import *
 from sklearn.semi_supervised import *
 from sklearn.discriminant_analysis import *
 import sklearnex, daal4py
-import neptune.new.integrations.optuna as optuna_utils
 from tqdm import tqdm, trange
 from xgboost import XGBClassifier, XGBRFClassifier
 # from BorutaShap import BorutaShap
@@ -69,7 +68,6 @@ set_config(display="diagram")
 warnings.filterwarnings("ignore")
 import pickle
 from collections import defaultdict
-import neptune.new as neptune
 import matplotlib.pyplot as plt
 import seaborn as sns
 from joblib import parallel_backend
@@ -96,14 +94,7 @@ from REDIS_CONFIG import REDIS_URL
 os.environ["NEPTUNE_PROJECT"] = "mlop3n/SDP"
 CACHE_DIR = Memory(location="../data/joblib_memory/")
 OPTUNA_DB = REDIS_URL
-run_params = {"directions": "maximize", "n_trials": 500}
-# run = neptune.init(
-#     project="mlop3n/SDP",
-#     api_token="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiI1MzU4OTQ1Ni02ZDMzLTRhNjAtOTFiMC04MjQ5ZDY4MjJjMjAifQ==",
-#     custom_run_id="XGB.Beta",
-#     mode="offline",
-# )  # your credentials
-
+run_params = {"directions": "maximize", "n_trials": 300}
 
 def allow_stopping(func):
     def wrapper():
@@ -135,7 +126,7 @@ def objective(trial: optuna.trial.Trial, data=XGBOOST_OPT_TRIAL_DATA):
         "verbosity": 0,
         "objective": "multi:softmax",
         "num_class": 3,
-        'nthreads':-1,
+        'nthreads':24,
         # use exact for small dataset.
         "tree_method": trial.suggest_categorical(
             "tree_method", ["exact", "approx", "hist"]
@@ -154,7 +145,7 @@ def objective(trial: optuna.trial.Trial, data=XGBOOST_OPT_TRIAL_DATA):
         "colsample_bytree": trial.suggest_float("colsample_bytree", 0.2, 1.0),
         "colsample_bylevel": trial.suggest_float("colsample_bylevel", 0.2, 1.0),
         "colsample_bynode": trial.suggest_float("colsample_bynode", 0.2, 1.0),
-        "num_parallel_tree": trial.suggest_int("num_parallel_tree", 1, 1000),
+        "num_parallel_tree": trial.suggest_int("num_parallel_tree", 1, 100),
     }
     if param["tree_method"] != "exact":
         param["max_bin"] = trial.suggest_int("max_bin", 256, 4096)
@@ -210,14 +201,11 @@ def objective(trial: optuna.trial.Trial, data=XGBOOST_OPT_TRIAL_DATA):
     f1_score_test = sklearn.metrics.f1_score(valid_y, ypred, average="macro")
     f1_score_train = sklearn.metrics.f1_score(train_y, ypred2, average="macro")
     # return f1_score_test, f1_score_train-f1_score_test
-    #  run["f1_score_test"] = f1_score_test
-    #  run["overfitting"] = f1_score_train - f1_score_test
     return f1_score_test
 
 
 def main(params=run_params):
     global run
-#     neptune_callback = optuna_utils.NeptuneCallback(run)
     study = optuna.create_study(
         study_name="XGB.Beta.1",
         sampler=optuna.samplers.TPESampler(
@@ -228,15 +216,14 @@ def main(params=run_params):
         direction=params["directions"],
         load_if_exists=True,
     )
-#     with parallel_backend("threading"):
-    study.optimize(
-        objective,
-        show_progress_bar=True,
-        gc_after_trial=True,
-        n_jobs=2,
-        n_trials=params["n_trials"],
-#         callbacks=[neptune_callback],
-    )
+    with parallel_backend("threading"):
+        study.optimize(
+            objective,
+            show_progress_bar=True,
+            gc_after_trial=True,
+            n_jobs=2,
+            n_trials=params["n_trials"],
+        )
 
 # updater_types = ['grow_colmaker', 'grow_histmaker', 'grow_local_histmaker', 'grow_quantile_histmaker','grow_gpu_hist', 'sync', 'refresh', 'prune']
 if __name__ == "__main__":

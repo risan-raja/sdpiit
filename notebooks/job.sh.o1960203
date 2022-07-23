@@ -1,0 +1,45 @@
+
+########################################################################
+#      Date:           Sat 23 Jul 2022 01:30:58 AM PDT
+#    Job ID:           1960203.v-qsvr-1.aidevcloud
+#      User:           u149902
+# Resources:           neednodes=s011-n006:ppn=2,nodes=s011-n006:ppn=2,walltime=12:00:00
+########################################################################
+
+Success
+[0]	validation-mlogloss:0.94329
+[0]	validation-mlogloss:0.93541
+[1]	validation-mlogloss:0.91580
+[1]	validation-mlogloss:0.90720
+[2]	validation-mlogloss:0.89159
+[2]	validation-mlogloss:0.88479
+[3]	validation-mlogloss:0.86808
+[3]	validation-mlogloss:0.86317
+[4]	validation-mlogloss:0.84949
+[4]	validation-mlogloss:0.84467
+[5]	validation-mlogloss:0.83211
+[5]	validation-mlogloss:0.82782
+[6]	validation-mlogloss:0.81767
+[6]	validation-mlogloss:0.81337
+[7]	validation-mlogloss:0.80485
+[8]	validation-mlogloss:0.79302
+[7]	validation-mlogloss:0.79931
+[9]	validation-mlogloss:0.78140
+[8]	validation-mlogloss:0.78841
+[10]	validation-mlogloss:0.77182
+[9]	validation-mlogloss:0.77668
+[11]	validation-mlogloss:0.76322
+[10]	validation-mlogloss:0.76779
+[12]	validation-mlogloss:0.75648
+[11]	validation-mlogloss:0.75822
+[13]	validation-mlogloss:0.74881
+[12]	validation-mlogloss:0.75043
+[14]	validation-mlogloss:0.74280
+[13]	validation-mlogloss:0.74380
+[15]	validation-mlogloss:0.73627
+
+########################################################################
+# End of output for job 1960203.v-qsvr-1.aidevcloud
+# Date: Sat 23 Jul 2022 01:46:13 AM PDT
+########################################################################
+

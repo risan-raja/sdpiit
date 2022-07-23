@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l nodes=s042-n003:ppn=2,walltime=12:00:00
+#PBS -l nodes=s001-n002:ppn=2,walltime=12:00:00
 cd $PBS_O_WORKDIR
 MYCONDA=/glob/development-tools/versions/oneapi/2022.1.2/oneapi/intelpython/latest/etc/profile.d/conda.sh
 MOB=/home/u149902/micromamba/envs/pro
