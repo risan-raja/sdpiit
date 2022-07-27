@@ -56,10 +56,12 @@ from sklearn.discriminant_analysis import *
 import sklearnex, daal4py
 from tqdm import tqdm, trange
 from xgboost import XGBClassifier, XGBRFClassifier
+
 # from BorutaShap import BorutaShap
 import xgboost as xgb
 import xgboost
 from sklearn.calibration import *
+
 # from neptune.new.integrations.xgboost import NeptuneCallback as neptxgb
 
 pd.options.plotting.backend = "plotly"
@@ -96,6 +98,7 @@ CACHE_DIR = Memory(location="../data/joblib_memory/")
 OPTUNA_DB = REDIS_URL
 run_params = {"directions": "maximize", "n_trials": 300}
 
+
 def allow_stopping(func):
     def wrapper():
         try:
@@ -107,6 +110,7 @@ def allow_stopping(func):
         gc.collect()
 
     return wrapper
+
 
 XGBOOST_OPT_TRIAL_DATA = joblib.load("../data/xgboost_optuna_trial_data/data.pkl")
 
@@ -126,8 +130,8 @@ def objective(trial: optuna.trial.Trial, data=XGBOOST_OPT_TRIAL_DATA):
         "verbosity": 0,
         "objective": "multi:softmax",
         "num_class": 3,
-        'nthreads':24,
-        'seed':34,
+        "nthreads": 24,
+        "seed": 34,
         # use exact for small dataset.
         "tree_method": trial.suggest_categorical(
             "tree_method", ["exact", "approx", "hist"]
@@ -212,7 +216,7 @@ def main(params=run_params):
         sampler=optuna.samplers.TPESampler(
             warn_independent_sampling=False,
         ),
-        pruner=optuna.pruners.MedianPruner(n_warmup_steps=5), 
+        pruner=optuna.pruners.MedianPruner(n_warmup_steps=5),
         storage=OPTUNA_DB,
         direction=params["directions"],
         load_if_exists=True,
@@ -225,6 +229,7 @@ def main(params=run_params):
             n_jobs=2,
             n_trials=params["n_trials"],
         )
+
 
 # updater_types = ['grow_colmaker', 'grow_histmaker', 'grow_local_histmaker', 'grow_quantile_histmaker','grow_gpu_hist', 'sync', 'refresh', 'prune']
 if __name__ == "__main__":
