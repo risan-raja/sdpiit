@@ -1,4 +1,5 @@
 data/mlflow.sqlite3
+data/kaggle/working/joblib/*
 data/automl/*
 **/*.pdf
 data/ovr_workflows.pkl
