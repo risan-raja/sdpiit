@@ -1,10 +1,11 @@
 import optuna
 from REDIS_CONFIG import REDIS_URL
 import warnings
-warnings.filterwarnings('ignore')
+
+warnings.filterwarnings("ignore")
 OPTUNA_DB = REDIS_URL
 
-X = raw_data.loc[:,nominal+ordinal]
+X = raw_data.loc[:, nominal + ordinal]
 y = raw_data.target
 X_train, X_test, y_train, y_test = gen_train_test(X, y, test_size=0.3)
 
@@ -41,13 +42,17 @@ def objective(trial: optuna.trial.Trial):
         score = sklearn.metrics.f1_score(y_test, y_pred, average="macro")
     return score
 
-__make_study__= 1
+
+__make_study__ = 1
 # objective()
-if __make_study__ ==1:
+if __make_study__ == 1:
     study = optuna.create_study(
         study_name="Hist.Alpha.Kaggle.5",
         sampler=optuna.samplers.TPESampler(
-            warn_independent_sampling=False,seed=29,n_ei_candidates=50, n_startup_trials=50
+            warn_independent_sampling=False,
+            seed=29,
+            n_ei_candidates=50,
+            n_startup_trials=50,
         ),
         storage=OPTUNA_DB,
         direction="maximize",
