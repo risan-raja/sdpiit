@@ -1,2 +1,3 @@
 'LogisticRegressionCV_KernelPCA.model', (0, 5584954)
 'SVC_Linear_KernelPCA.model', (5585408, 2099176)
+'OVO_LogisticRegressionCV_KernelPCA.model', (7684608, 5591719)
