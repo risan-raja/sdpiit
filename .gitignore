@@ -64,3 +64,4 @@ notebooks/.neptune/async/run__96cb20eb-ccf3-4fe7-b591-f767d0196fb6/exec-0-2022-0
 notebooks/.neptune/async/run__96cb20eb-ccf3-4fe7-b591-f767d0196fb6/exec-1-2022-07-16_22.46.47.629867/data-1.log
 data/rbm_data.pkl
 notebooks/REDIS_CONFIG.py
+data/poly_features.db.dat
