@@ -11,6 +11,8 @@ data/workflows.pkl
 3ipynb_checkpoints/.gitignore-checkpoint
 notebooks/.ipynb_checkpoints/EDA_v2-checkpoint.ipynb
 notebooks/.ipynb_checkpoints/*
+notebooks/mysetup/.ipynb_checkpoints/*
+notebooks/mysetup/__pycache__/*
 .ipynb_checkpoints/*
 data/bgclf.pkl
 notebooks/dask-worker-space
