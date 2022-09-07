@@ -16,7 +16,7 @@ notebooks/mysetup/__pycache__/*
 .ipynb_checkpoints/*
 data/bgclf.pkl
 data/kaggle/working/joblib/*
-
+notebooks/BallTree
 notebooks/dask-worker-space
 reports/simplified_files/*
 imgs/.ipynb_checkpoints/*
