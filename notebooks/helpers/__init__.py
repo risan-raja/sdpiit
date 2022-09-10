@@ -18,5 +18,5 @@ __all__ = [
     "plot_mean_std_max",
     "OneVsRestClassifier",
     "OneVsOneClassifier",
-    "NotebookFinder"
+    "NotebookFinder",
 ]
