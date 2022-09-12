@@ -8,6 +8,7 @@ from sklearnex import patch_sklearn
 
 patch_sklearn()
 from helpers.wrappers import PolynomialWrapper as PWrapper
+
 # pd.options.plotting.backend='matplotlib'
 import pandas as pd
 import numpy as np
@@ -53,9 +54,11 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import RepeatedStratifiedKFold
 from joblib import parallel_backend
+
 # from category_encoders.wrapper import PolynomialWrapper, NestedCVWrapper
 from BorutaShap import BorutaShap
 from sklearn.model_selection import train_test_split
+
 # from autosklearn.automl import AutoMLClassifier
 import sklearn.metrics
 
@@ -78,11 +81,7 @@ def __table__(rows, margin=10, columns=[]):
     """
 
     def projection(cols, columns):
-        return (
-            [(x, cols[x]) for x in columns if x in cols]
-            if columns
-            else cols.items()
-        )
+        return [(x, cols[x]) for x in columns if x in cols] if columns else cols.items()
 
     def row_to_string(row, columns):
         values = [
@@ -97,9 +96,7 @@ def __table__(rows, margin=10, columns=[]):
         return "+%s+" % ("+".join(["-" * size for name, size in columns]))
 
     data = [dict([(str(a), str(b)) for a, b in row.items()]) for row in rows]
-    cols = (
-        dict([(x, len(x) + 1) for row in data for x in row.keys()]) if data else {}
-    )
+    cols = dict([(x, len(x) + 1) for row in data for x in row.keys()]) if data else {}
     for row in data:
         for key in row.keys():
             cols[key] = max(cols[key], len(row[key]) + 1)
@@ -107,9 +104,9 @@ def __table__(rows, margin=10, columns=[]):
         cols, columns
     )  # extract certain columns to display (or all if not provided)
     table = (
-            [divisor(proj), header(proj), divisor(proj)]
-            + [row_to_string(row, proj) for row in data]
-            + [divisor(proj)]
+        [divisor(proj), header(proj), divisor(proj)]
+        + [row_to_string(row, proj) for row in data]
+        + [divisor(proj)]
     )
     table = ["%s%s" % (" " * margin, tpl) for tpl in table] if margin > 0 else table
     table_text = "\n".join(table)
@@ -612,38 +609,54 @@ def run_pipe(X_train, y_train, X_test, y_test):
     # encoder = BaseNEncoder(cols=nominal, base=12)
     X_train_enc = encoder.fit_transform(X_train, y_train)
     X_test_enc = encoder.transform(X_test)
-    sclf = StackingClassifier([('AdaBoostClassifier', AdaBoostClassifier(random_state=10)),
-                               ("RandomForestClassifier", RandomForestClassifier(random_state=10, ))],
-                              final_estimator=MLPClassifier())
+    sclf = StackingClassifier(
+        [
+            ("AdaBoostClassifier", AdaBoostClassifier(random_state=10)),
+            (
+                "RandomForestClassifier",
+                RandomForestClassifier(
+                    random_state=10,
+                ),
+            ),
+        ],
+        final_estimator=MLPClassifier(),
+    )
 
     experiment = pd.concat([X_train_enc, X_test_enc], axis=0)
-    print(f'shape transformed {X_train_enc.shape}')
+    print(f"shape transformed {X_train_enc.shape}")
     feature_corr = experiment.corrwith(final_data.target).sort_values()
     steps = [
-        ('vt', VarianceThreshold()),
-        ('onevsoneclassifier', OneVsOneClassifier(estimator=sclf, n_jobs=-1))]
+        ("vt", VarianceThreshold()),
+        ("onevsoneclassifier", OneVsOneClassifier(estimator=sclf, n_jobs=-1)),
+    ]
     # ('onevsoneclassifier', OneVsRestClassifier(estimator=cat_clf))]
     job_mem = Memory()
     pipe = Pipeline(steps, memory=job_mem)
-    with parallel_backend('loky'):
+    with parallel_backend("loky"):
         pipe.fit(X_train_enc, y_train)
         # pipe.fit(X_train, y_train)
         y_pred = pipe.predict(X_test_enc)
         # y_pred = pipe.predict(X_test)
         # pprint.pprint(classification_report(y_pred, y_test,output_dict=True))
         print(classification_report(y_pred, y_test, output_dict=False))
-        print('cohen_kappa_score')
+        print("cohen_kappa_score")
         print(sklearn.metrics.cohen_kappa_score(y_pred, y_test))
-        print('balanced_accuracy_score')
+        print("balanced_accuracy_score")
         print(sklearn.metrics.balanced_accuracy_score(y_test, y_pred))
-        print('accuracy_score')
-        print(sklearn.metrics.accuracy_score(y_test, y_pred, ) * 0.85)
-        print('f1_score_micro')
-        print(sklearn.metrics.f1_score(y_test, y_pred, average='micro'))
-        print('f1_score_macro')
-        print(sklearn.metrics.f1_score(y_test, y_pred, average='macro'))
-        print('f1_score_weighted')
-        print(sklearn.metrics.f1_score(y_test, y_pred, average='weighted'))
+        print("accuracy_score")
+        print(
+            sklearn.metrics.accuracy_score(
+                y_test,
+                y_pred,
+            )
+            * 0.85
+        )
+        print("f1_score_micro")
+        print(sklearn.metrics.f1_score(y_test, y_pred, average="micro"))
+        print("f1_score_macro")
+        print(sklearn.metrics.f1_score(y_test, y_pred, average="macro"))
+        print("f1_score_weighted")
+        print(sklearn.metrics.f1_score(y_test, y_pred, average="weighted"))
     # plt.rcParams.update({'font.size': 16})
     # fig,ax = plt.subplots(1,1,figsize=(15,15),)
     # fig.set_f
@@ -661,11 +674,25 @@ def run_pipe(X_train, y_train, X_test, y_test):
 
 # from catboost import CatBoostClassifier
 # cat_clf = CatBoostClassifier(thread_count=-1,iterations=500,loss_function='MultiClass',logging_level='Silent',one_hot_max_size=9000, )
-test_set = ['v_6', 'v_31', 'v_5', 'v_19', 'v_29', 'v_27', 'v_17', 'v_10', 'v_36', 'v_4', 'v_22']
+test_set = [
+    "v_6",
+    "v_31",
+    "v_5",
+    "v_19",
+    "v_29",
+    "v_27",
+    "v_17",
+    "v_10",
+    "v_36",
+    "v_4",
+    "v_22",
+]
 # X = final_data.loc[:,test_set]
-X = final_data.drop(['target'], axis=1)
+X = final_data.drop(["target"], axis=1)
 y = final_data.target
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=True, random_state=10)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, shuffle=True, random_state=10
+)
 pipe, y_pred, expe = run_pipe(X_train, y_train, X_test, y_test)
 y_true_base = baseline_prediction_data.target
 # y_pred_base = pipe.predict(final_pred_data)
@@ -673,14 +700,14 @@ y_true_base = baseline_prediction_data.target
 pipe, y_pred, expe = run_pipe(X, y, final_pred_data, baseline_prediction_data.target)
 
 # ### Best Until
-# 
+#
 # ```
 #               precision    recall  f1-score   support
-# 
+#
 #            0       0.73      0.76      0.74       242
 #            1       0.88      0.77      0.83       425
 #            2       0.36      0.53      0.43        93
-# 
+#
 #     accuracy                           0.74       760
 #    macro avg       0.66      0.69      0.67       760
 # weighted avg       0.77      0.74      0.75       760
@@ -697,19 +724,19 @@ pipe, y_pred, expe = run_pipe(X, y, final_pred_data, baseline_prediction_data.ta
 #         0.6661609514839579
 #  - f1_score_weighted
 #         0.727693784365417
-# 
-# 
+#
+#
 # ```
 #               precision    recall  f1-score   support
-# 
+#
 #            0       0.73      0.79      0.76       490
 #            1       0.76      0.91      0.83       925
 #            2       0.00      0.00      0.00       213
-# 
+#
 #     accuracy                           0.75      1628
 #    macro avg       0.50      0.57      0.53      1628
 # weighted avg       0.65      0.75      0.70      1628
-# 
+#
 # ```
 #  - cohen_kappa_score
 #         0.5247767208816295
@@ -732,12 +759,12 @@ expe.columns
 # In[ ]:
 
 
-X = nnom = final_data_indvl.loc[:, nominal].astype('category')
+X = nnom = final_data_indvl.loc[:, nominal].astype("category")
 y = final_data.target
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
 pipe, y_pred = run_pipe(X_train, y_train, X_test, y_test)
 
-X_test = final_pred_data_indvl_test.loc[:, nominal].astype('category')
+X_test = final_pred_data_indvl_test.loc[:, nominal].astype("category")
 X_train = nnom
 y_train = final_data.target
 y_test = baseline_prediction_data.target
@@ -748,9 +775,18 @@ tablify(__t)
 # In[45]:
 
 
-sclf = StackingClassifier([('AdaBoostClassifier', AdaBoostClassifier(random_state=10)),
-                           ("RandomForestClassifier", RandomForestClassifier(random_state=10, ))],
-                          final_estimator=MLPClassifier())
+sclf = StackingClassifier(
+    [
+        ("AdaBoostClassifier", AdaBoostClassifier(random_state=10)),
+        (
+            "RandomForestClassifier",
+            RandomForestClassifier(
+                random_state=10,
+            ),
+        ),
+    ],
+    final_estimator=MLPClassifier(),
+)
 sclf
 # perf_comp = pd.concat([y_test,pd.Series(y_pred,name='y_pred')],axis=1)
 
@@ -760,10 +796,10 @@ sclf
 # In[ ]:
 
 
-nnom = final_data_indvl.loc[:, nominal].astype('category')
-X_train = nnom.astype('int')
+nnom = final_data_indvl.loc[:, nominal].astype("category")
+X_train = nnom.astype("int")
 y_train = final_data.target
-X_test = final_pred_data_indvl_test.loc[:, nominal].astype('category')
+X_test = final_pred_data_indvl_test.loc[:, nominal].astype("category")
 encoder = BaseNEncoder(base=7)
 # encoder.fit_base_n_encoding()
 # encoder = NCVWrapper(PWrapper(TargetEncoder()))
@@ -771,7 +807,7 @@ encoder = BaseNEncoder(base=7)
 # X_train_enc = encoder.fit_transform(X=X_train,y=y_train)
 # X_train_enc = encoder.fit_transform(X_train,y_train)
 # X_test_enc = encoder.transform(X_test)
-enc_X = encoder.fit_transform(X_train.astype('category'))
+enc_X = encoder.fit_transform(X_train.astype("category"))
 
 # Feature_Selector.fit(X=enc_X, y=y_train, n_trials=10, sample=False,train_or_test = 'test', normalize=True, verbose=True)
 
@@ -779,16 +815,25 @@ enc_X = encoder.fit_transform(X_train.astype('category'))
 # In[ ]:
 
 
-with parallel_backend('threading'):
+with parallel_backend("threading"):
     # cat_clf = CatBoostClassifier(thread_count=-1,iterations=500,loss_function='MultiClass',logging_level='Silent',one_hot_max_size=9000, )
-    Feature_Selector = BorutaShap(model=DecisionTreeClassifier(),
-                                  importance_measure='shap',
-                                  classification=True)
+    Feature_Selector = BorutaShap(
+        model=DecisionTreeClassifier(), importance_measure="shap", classification=True
+    )
     X = nnom = final_data.loc[:, nominal + binary + ratio + ordinal]
     y = final_data.target
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5
-                                                        , shuffle=True)
-    Feature_Selector.fit(X=X, y=y, n_trials=100, sample=False, train_or_test='test', normalize=True, verbose=True)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.5, shuffle=True
+    )
+    Feature_Selector.fit(
+        X=X,
+        y=y,
+        n_trials=100,
+        sample=False,
+        train_or_test="test",
+        normalize=True,
+        verbose=True,
+    )
     Feature_Selector.TentativeRoughFix()
 
 # In[ ]:
@@ -796,8 +841,16 @@ with parallel_backend('threading'):
 
 # confusion_matrix = sklearn.metrics.confusion_matrix(y_test, y_pred)
 # fig = plt.figure(figsize=(15,15))
-plt.rcParams.update({'font.size': 16})
-fig, ax = plt.subplots(1, 1, figsize=(15, 15), )
+plt.rcParams.update({"font.size": 16})
+fig, ax = plt.subplots(
+    1,
+    1,
+    figsize=(15, 15),
+)
 # fig.set_f
-disp = sklearn.metrics.ConfusionMatrixDisplay.from_predictions(y_test, y_pred, ax=ax, )
+disp = sklearn.metrics.ConfusionMatrixDisplay.from_predictions(
+    y_test,
+    y_pred,
+    ax=ax,
+)
 # disp.plot()
