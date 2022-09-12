@@ -1,0 +1,8 @@
+'HistGradientBoostingClassifier', (0, 2628085)
+'SGDClassifier', (2628096, 5322)
+'RandomForestClassifier', (2633728, 3675921)
+'ExtraTreesClassifier', (6309888, 5363931)
+'BernoulliNB', (11674112, 16493)
+'MultinomialNB', (11691008, 16479)
+'CategoricalNB', (11707904, 87266)
+'ComplementNB', (11795456, 19181)
