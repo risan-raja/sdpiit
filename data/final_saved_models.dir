@@ -6,3 +6,4 @@
 'MultinomialNB', (11691008, 16479)
 'CategoricalNB', (11707904, 87266)
 'ComplementNB', (11795456, 19181)
+'BaggingClassifier', (11814912, 11288406)
